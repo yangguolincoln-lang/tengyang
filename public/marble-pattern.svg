@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none">
+  <!-- 雪花大理石纹理装饰线条 · 象牙白/金色细曲线 -->
+  <defs>
+    <linearGradient id="marbleGold" x1="0" y1="0" x2="1200" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#E8BE6A" stop-opacity="0.9"/>
+      <stop offset="0.5" stop-color="#D9A441" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#FAF7F0" stop-opacity="0.35"/>
+    </linearGradient>
+    <linearGradient id="marbleIvory" x1="1200" y1="0" x2="0" y2="600" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FAF7F0" stop-opacity="0.8"/>
+      <stop offset="1" stop-color="#E8BE6A" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+  <g stroke="url(#marbleGold)" fill="none" stroke-linecap="round">
+    <path d="M-20 120 C160 60 260 200 420 160 C580 120 640 240 820 210 C980 185 1060 260 1220 230" stroke-width="2.4"/>
+    <path d="M-20 180 C180 130 300 260 460 220 C620 180 700 300 860 270 C1010 242 1100 320 1220 290" stroke-width="1.4" opacity="0.7"/>
+    <path d="M-20 320 C140 260 280 380 440 340 C600 300 680 420 850 390 C1000 364 1090 440 1220 410" stroke-width="2" opacity="0.85"/>
+    <path d="M-20 460 C180 400 320 520 480 480 C640 440 720 560 890 530 C1030 505 1110 570 1220 545" stroke-width="1.6" opacity="0.6"/>
+  </g>
+  <g stroke="url(#marbleIvory)" fill="none" stroke-linecap="round">
+    <path d="M-20 60 C200 110 340 20 520 70 C700 120 780 30 960 80 C1080 112 1150 70 1220 90" stroke-width="1.8"/>
+    <path d="M-20 260 C170 310 330 210 510 260 C690 310 770 220 950 270 C1070 302 1140 260 1220 280" stroke-width="1.2" opacity="0.75"/>
+    <path d="M-20 400 C190 450 350 350 530 400 C710 450 790 360 970 410 C1090 442 1160 400 1220 420" stroke-width="2.2" opacity="0.9"/>
+    <path d="M-20 540 C210 590 370 490 550 540 C730 590 810 500 990 550 C1110 582 1180 540 1220 560" stroke-width="1.4" opacity="0.65"/>
+  </g>
+  <!-- 细腻支脉 -->
+  <g stroke="#D9A441" fill="none" stroke-linecap="round" opacity="0.45">
+    <path d="M300 160 C340 220 320 300 380 350 C430 392 420 460 460 520" stroke-width="1"/>
+    <path d="M700 100 C740 170 710 250 770 310 C820 360 800 440 850 500" stroke-width="1"/>
+    <path d="M1050 180 C1080 240 1060 320 1110 370 C1150 410 1140 470 1170 520" stroke-width="1"/>
+    <path d="M120 300 C160 360 140 430 190 480" stroke-width="1"/>
+  </g>
+  <!-- 雪花晶点 -->
+  <g fill="#E8BE6A">
+    <circle cx="420" cy="160" r="3.5"/>
+    <circle cx="820" cy="210" r="2.5"/>
+    <circle cx="460" cy="340" r="3"/>
+    <circle cx="960" cy="80" r="2.5"/>
+    <circle cx="530" cy="400" r="3.5"/>
+    <circle cx="890" cy="530" r="2.5"/>
+  </g>
+</svg>
