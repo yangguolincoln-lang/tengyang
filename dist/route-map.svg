@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" fill="none">
+  <!-- 育种路线图示底图：母本小尾寒羊 → 父本澳洲白羊 → 排序杂交 → 多代选育 → 横交固定 -->
+  <defs>
+    <linearGradient id="routeGold" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#D9A441" stop-opacity="0.25"/>
+      <stop offset="0.5" stop-color="#D9A441" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#E8BE6A" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+  <!-- 两条亲本汇入线 -->
+  <path d="M60 240 C 260 240, 340 330, 480 390" stroke="url(#routeGold)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <path d="M60 560 C 260 560, 340 470, 480 410" stroke="url(#routeGold)" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <!-- 主流程线 -->
+  <path d="M480 400 L 1520 400" stroke="url(#routeGold)" stroke-width="3"/>
+  <!-- 节点 0: 母本 -->
+  <g>
+    <circle cx="120" cy="240" r="34" stroke="#D9A441" stroke-width="2.5"/>
+    <circle cx="120" cy="240" r="8" fill="#D9A441"/>
+    <text x="120" y="180" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="30" fill="currentColor">母本 · 小尾寒羊</text>
+    <text x="120" y="310" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#D9A441">DAM LINE</text>
+  </g>
+  <!-- 节点 0': 父本 -->
+  <g>
+    <circle cx="120" cy="560" r="34" stroke="#D9A441" stroke-width="2.5"/>
+    <circle cx="120" cy="560" r="8" fill="#D9A441"/>
+    <text x="120" y="500" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="30" fill="currentColor">父本 · 澳洲白羊</text>
+    <text x="120" y="630" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#D9A441">SIRE LINE</text>
+  </g>
+  <!-- 节点 1: 排序杂交 -->
+  <g>
+    <circle cx="560" cy="400" r="40" stroke="#D9A441" stroke-width="3"/>
+    <circle cx="560" cy="400" r="10" fill="#D9A441"/>
+    <circle cx="560" cy="400" r="52" stroke="#D9A441" stroke-width="1" opacity="0.4"/>
+    <text x="560" y="330" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="32" fill="currentColor">排序杂交</text>
+    <text x="560" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#D9A441">CROSSING</text>
+  </g>
+  <!-- 节点 2: 多代选育 -->
+  <g>
+    <circle cx="900" cy="400" r="40" stroke="#D9A441" stroke-width="3"/>
+    <circle cx="900" cy="400" r="10" fill="#D9A441"/>
+    <circle cx="900" cy="400" r="52" stroke="#D9A441" stroke-width="1" opacity="0.4"/>
+    <!-- 选育螺旋装饰 -->
+    <path d="M856 470 C 880 500, 920 500, 944 470" stroke="#D9A441" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <text x="900" y="330" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="32" fill="currentColor">多代选育</text>
+    <text x="900" y="520" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#D9A441">SELECTION</text>
+  </g>
+  <!-- 节点 3: 横交固定 -->
+  <g>
+    <circle cx="1240" cy="400" r="40" stroke="#D9A441" stroke-width="3"/>
+    <circle cx="1240" cy="400" r="10" fill="#D9A441"/>
+    <circle cx="1240" cy="400" r="52" stroke="#D9A441" stroke-width="1" opacity="0.4"/>
+    <text x="1240" y="330" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="32" fill="currentColor">横交固定</text>
+    <text x="1240" y="478" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#D9A441">FIXATION</text>
+  </g>
+  <!-- 终点: 黄三角肉羊 -->
+  <g>
+    <circle cx="1490" cy="400" r="46" stroke="#E8BE6A" stroke-width="3.5"/>
+    <circle cx="1490" cy="400" r="46" stroke="#E8BE6A" stroke-width="1" opacity="0.3" transform="scale(1.25) translate(-298 -80)"/>
+    <circle cx="1490" cy="400" r="12" fill="#E8BE6A"/>
+    <text x="1490" y="320" text-anchor="middle" font-family="'Noto Serif SC', serif" font-size="34" font-weight="700" fill="#E8BE6A">黄三角肉羊</text>
+    <text x="1490" y="490" text-anchor="middle" font-family="Inter, sans-serif" font-size="16" letter-spacing="3" fill="#E8BE6A">NEW BREED</text>
+  </g>
+  <!-- 方向箭头 -->
+  <g fill="#D9A441">
+    <path d="M640 400 l18 -7 v14 z"/>
+    <path d="M980 400 l18 -7 v14 z"/>
+    <path d="M1320 400 l18 -7 v14 z"/>
+  </g>
+</svg>
