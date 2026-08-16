@@ -8,6 +8,8 @@ import Tech from './pages/Tech'
 import Industry from './pages/Industry'
 import News from './pages/News'
 import Contact from './pages/Contact'
+import Products from './pages/products/Products'
+import Tools from './pages/tools/Tools'
 
 /** 页面切换：淡入 + 上移 24px，300ms */
 function AnimatedRoutes() {
@@ -27,6 +29,8 @@ function AnimatedRoutes() {
             <Route path="about" element={<About />} />
             <Route path="breed" element={<Breed />} />
             <Route path="tech" element={<Tech />} />
+            <Route path="products" element={<Products />} />
+            <Route path="tools" element={<Tools />} />
             <Route path="industry" element={<Industry />} />
             <Route path="news" element={<News />} />
             <Route path="contact" element={<Contact />} />

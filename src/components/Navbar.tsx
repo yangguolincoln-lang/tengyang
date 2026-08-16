@@ -7,9 +7,11 @@ import { cn } from '@/lib/utils'
 export const NAV_LINKS = [
   { to: '/', label: '首页' },
   { to: '/about', label: '关于我们' },
-  { to: '/breed', label: '核心品种' },
-  { to: '/tech', label: '科技创新' },
-  { to: '/industry', label: '产业园区' },
+  { to: '/breed', label: '品种培育' },
+  { to: '/tech', label: '核心技术' },
+  { to: '/products', label: '产品中心' },
+  { to: '/tools', label: '养殖工具' },
+  { to: '/industry', label: '产业生态' },
   { to: '/news', label: '新闻动态' },
   { to: '/contact', label: '联系我们' },
 ] as const
@@ -75,7 +77,7 @@ export default function Navbar() {
           </Link>
 
           {/* 桌面菜单 */}
-          <nav className="hidden items-center gap-7 lg:flex" aria-label="主导航">
+          <nav className="hidden items-center gap-4 lg:flex xl:gap-6" aria-label="主导航">
             {NAV_LINKS.map((item) => (
               <NavLink
                 key={item.to}

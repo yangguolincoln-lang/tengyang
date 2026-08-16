@@ -6,6 +6,7 @@ import Roadmap from './home/Roadmap'
 import Journey from './home/Journey'
 import BreedSpotlight from './home/BreedSpotlight'
 import TwinEngines from './home/TwinEngines'
+import ProductsToolsEntry from './home/ProductsToolsEntry'
 import NewsPreview from './home/NewsPreview'
 import ContactBanner from './home/ContactBanner'
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Journey />
       <BreedSpotlight />
       <TwinEngines />
+      <ProductsToolsEntry />
       <Roadmap />
       <NewsPreview />
       <ContactBanner />
