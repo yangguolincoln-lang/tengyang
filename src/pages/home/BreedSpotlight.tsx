@@ -68,7 +68,7 @@ export default function BreedSpotlight() {
         <div className="relative">
           <div className="breed-photo overflow-hidden rounded-2xl shadow-card">
             <img
-              src="/sheep-portrait.jpg"
+              src="/breed-trio.jpg"
               alt="黄三角肉羊种羊肖像"
               className="aspect-[7/8] w-full object-cover"
             />
@@ -85,7 +85,7 @@ export default function BreedSpotlight() {
             黄三角肉羊 · 雪花肉羊
           </h2>
           <p className="breed-fade mt-5 text-base leading-[1.8] text-ink-600">
-            由中国科学院西北生态环境资源研究院杨果教授团队、黄河口滩羊产业技术研究院与腾洋育纯联合培育，历时十五年，实现高端雪花肉羊种源自主可控。
+            由中国科学院西北生态环境资源研究院杨果教授团队、黄河口滩羊产业技术研究院与腾洋育纯联合培育，历时十八年，实现高端雪花肉羊种源自主可控。
           </p>
 
           {/* 2×2 迷你数据格 */}

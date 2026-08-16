@@ -14,7 +14,7 @@ type Stat = {
 }
 
 const STATS: Stat[] = [
-  { value: 15, suffix: '', unit: '年', label: '品种选育历程' },
+  { value: 18, suffix: '', unit: '年', label: '品种选育历程' },
   { value: 3000, suffix: '+', unit: '只', label: '雪花羊核心群存栏' },
   { value: 350, suffix: '', unit: '克', label: '平均日增重' },
   { value: 20, suffix: '', unit: '斤', label: '单只稳定产出雪花肉' },

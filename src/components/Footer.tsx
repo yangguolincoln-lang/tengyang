@@ -48,7 +48,7 @@ export default function Footer() {
           {/* 品牌栏 */}
           <div>
             <Link to="/" className="flex items-center gap-3">
-              <img src="/logo.svg" alt="腾洋育纯标识" className="h-10 w-10" style={{ color: '#D9A441' }} />
+              <img src="/logo-icon.png" alt="腾洋育纯标识" className="h-10 w-10" style={{ color: '#D9A441' }} />
               <span className="flex flex-col leading-none">
                 <span className="font-serif text-xl font-bold">腾洋育纯</span>
                 <span className="font-inter text-[10px] uppercase tracking-[0.28em] text-ivory-50/50">

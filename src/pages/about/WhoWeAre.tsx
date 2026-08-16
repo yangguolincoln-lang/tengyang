@@ -99,7 +99,7 @@ export default function WhoWeAre() {
             我们与
             <strong className="font-bold text-pine-700">中国科学院西北生态环境资源研究院（杨果教授团队）</strong>
             、<strong className="font-bold text-pine-700">黄河口滩羊产业技术研究院</strong>
-            深度共建，历时约 15 年培育出「黄三角肉羊」——我国首个自主培育的专门化雪花肉羊新品系。
+            深度共建，历时约 18 年培育出「黄三角肉羊」——我国首个自主培育的专门化雪花肉羊新品系。
           </p>
           <p className="who-text mt-4 text-base leading-[1.8] text-ink-600">
             我们以解决肉羊产业

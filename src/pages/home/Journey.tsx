@@ -16,7 +16,7 @@ type Node = {
 
 const NODES: Node[] = [
   {
-    year: '起点 · 约15年前',
+    year: '起点 · 约18年前',
     title: '锁定方向',
     desc: '以山东小尾寒羊为母本、澳洲白羊为父本，开启雪花肉羊选育。',
     icon: Sprout,
@@ -164,7 +164,7 @@ export default function Journey() {
       <div className="relative mx-auto w-full max-w-[1280px] px-5 md:px-12">
         <Eyebrow text="Breeding Journey" />
         <h2 className="mt-4 font-serif text-3xl font-bold text-ivory-50 md:text-4xl">
-          十五年，一条自主育种之路
+          十八年，一条自主育种之路
         </h2>
       </div>
 

@@ -59,9 +59,9 @@ export default function BreedHero() {
       <div className="breed-hero-img-wrap absolute inset-y-0 right-0 hidden w-[45%] md:block" aria-hidden>
         <div className="breed-hero-img h-full w-full will-change-transform">
           <img
-            src="/sheep-portrait.jpg"
+            src="/breed-ram.jpg"
             alt=""
-            className="h-full w-full object-cover object-center"
+            className="h-full w-full object-cover object-right"
           />
         </div>
         {/* 左侧渐变融入背景 */}
@@ -107,7 +107,7 @@ export default function BreedHero() {
 
       {/* 移动端羊图（文档流底部） */}
       <div className="relative h-64 w-full overflow-hidden md:hidden">
-        <img src="/sheep-portrait.jpg" alt="黄三角肉羊种公羊肖像" className="h-full w-full object-cover" />
+        <img src="/breed-ram.jpg" alt="黄三角肉羊种公羊肖像" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-gradient-to-t from-pine-950/60 to-transparent" />
       </div>
 

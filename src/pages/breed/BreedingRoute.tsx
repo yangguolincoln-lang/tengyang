@@ -103,7 +103,7 @@ export default function BreedingRoute() {
           <Eyebrow text="BREEDING ROUTE" />
         </div>
         <h2 className="route-head mt-4 font-serif text-3xl font-bold text-ink-900 md:text-4xl">
-          一条走了十五年的育种路线
+          一条走了十八年的育种路线
         </h2>
 
         {/* 桌面：5 节点横排；移动：纵向 */}

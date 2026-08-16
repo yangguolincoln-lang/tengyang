@@ -15,7 +15,7 @@ const TITLE_LINE_2_GOLD = '自主'
 const TITLE_LINE_2_B = '生长'
 
 const MINI_STATS = [
-  { value: '15', unit: '年育种', target: '#home-journey' },
+  { value: '18', unit: '年育种', target: '#home-journey' },
   { value: '3000', unit: '只核心群', target: '#home-numbers' },
   { value: '>10%', unit: 'M5 雪花纹', target: '#home-breed' },
 ]
@@ -150,7 +150,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-fade mt-7 max-w-2xl text-base leading-[1.8] text-ivory-50/85 md:text-lg">
-            山东腾洋育纯农牧科技有限公司 —— 联合中国科学院科研团队，历时十五年培育我国首个自主雪花肉羊新品系「黄三角肉羊」，打破国外高端种质资源长期垄断。
+            山东腾洋育纯农牧科技有限公司 —— 联合中国科学院科研团队，历时十八年培育我国首个自主雪花肉羊新品系「黄三角肉羊」，打破国外高端种质资源长期垄断。
           </p>
           <div className="hero-fade mt-9 flex flex-wrap items-center gap-4">
             <Link

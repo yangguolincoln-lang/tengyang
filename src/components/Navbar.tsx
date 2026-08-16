@@ -53,7 +53,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3" aria-label="腾洋育纯首页">
             <img
-              src="/logo.svg"
+              src="/logo-icon.png"
               alt="腾洋育纯标识"
               className={cn(
                 'h-9 w-9 transition-colors',

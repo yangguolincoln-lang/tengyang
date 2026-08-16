@@ -8,7 +8,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 const MILESTONES = [
   {
-    year: '约 15 年前',
+    year: '约 18 年前',
     title: '育种启程',
     desc: '以小尾寒羊为母本、澳洲白羊为父本，启动雪花肉羊系统选育。',
     highlight: false,
