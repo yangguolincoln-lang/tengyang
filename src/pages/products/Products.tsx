@@ -303,12 +303,14 @@ function MuttonProducts() {
   )
 }
 
+import { WaveDivider } from '@/components/Droplets'
+
 export default function Products() {
   return (
     <>
       <ProductsHero />
       <FeedProducts />
-      <div className="seam-to-dark" aria-hidden />
+      <WaveDivider top="#FAF7F0" fill="#0B1F16" />
       <MuttonProducts />
     </>
   )

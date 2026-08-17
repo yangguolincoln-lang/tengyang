@@ -157,6 +157,89 @@
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
   }
 
+  /* 液态玻璃：顶部 1px 亮边 + 左上斜向内高光（模拟液面反光） */
+  .glass-liquid {
+    position: relative;
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.38),
+      0 14px 40px rgba(0, 0, 0, 0.28);
+  }
+  .glass-liquid::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.3) 0%,
+      rgba(255, 255, 255, 0.08) 22%,
+      transparent 42%
+    );
+  }
+  .glass.glass-liquid {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.65),
+      0 8px 30px rgba(11, 31, 22, 0.08);
+  }
+
+  /* 水珠浮游：上浮 + 横向漂移 + 透明度呼吸 */
+  .droplet {
+    animation-name: droplet-rise;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+  }
+  @keyframes droplet-rise {
+    0% {
+      transform: translateY(0) translateX(0);
+      opacity: 0;
+    }
+    12% {
+      opacity: 0.9;
+    }
+    55% {
+      opacity: 0.55;
+    }
+    85% {
+      opacity: 0.7;
+    }
+    100% {
+      transform: translateY(-52vh) translateX(var(--drop-sway, 2vw));
+      opacity: 0;
+    }
+  }
+
+  /* 流体色团：极低透明度 + 强模糊 + 缓慢 morph/漂浮 */
+  .liquid-blob {
+    border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+    filter: blur(90px);
+    opacity: 0.28;
+    animation:
+      blob-morph 18s ease-in-out infinite alternate,
+      blob-drift 26s ease-in-out infinite alternate;
+    will-change: transform, border-radius;
+  }
+  @keyframes blob-morph {
+    0% {
+      border-radius: 58% 42% 55% 45% / 48% 55% 45% 52%;
+    }
+    50% {
+      border-radius: 45% 55% 48% 52% / 55% 42% 58% 45%;
+    }
+    100% {
+      border-radius: 52% 48% 42% 58% / 45% 52% 48% 55%;
+    }
+  }
+  @keyframes blob-drift {
+    0% {
+      transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
+    }
+    100% {
+      transform: translate3d(4vw, -3vh, 0) rotate(14deg) scale(1.08);
+    }
+  }
+
   .seam-to-ivory-100 {
     background: linear-gradient(to bottom, #0b1f16 0%, rgba(11, 31, 22, 0.45) 45%, #f3eee2 100%);
   }
@@ -169,6 +252,14 @@
   .seam-to-light {
     height: 3.5rem;
     background: linear-gradient(to bottom, #0b1f16 0%, rgba(11, 31, 22, 0.45) 45%, #faf7f0 100%);
+  }
+}
+
+/* 减弱动效：停用装饰性动画 */
+@media (prefers-reduced-motion: reduce) {
+  .droplet,
+  .liquid-blob {
+    animation: none !important;
   }
 }
 

@@ -9,6 +9,7 @@ import TwinEngines from './home/TwinEngines'
 import ProductsToolsEntry from './home/ProductsToolsEntry'
 import NewsPreview from './home/NewsPreview'
 import ContactBanner from './home/ContactBanner'
+import { WaveDivider } from '@/components/Droplets'
 
 export default function Home() {
   return (
@@ -16,7 +17,7 @@ export default function Home() {
       <Hero />
       <Manifesto />
       <Numbers />
-      <div className="seam-to-dark" aria-hidden />
+      <WaveDivider top="#FAF7F0" fill="#0B1F16" />
       <Milestones />
       <Journey />
       <div className="seam-to-light seam-to-ivory-100" aria-hidden />

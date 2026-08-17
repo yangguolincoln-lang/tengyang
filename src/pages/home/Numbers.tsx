@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Eyebrow from '@/components/Eyebrow'
+import { DropletAccent } from '@/components/Droplets'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -84,6 +85,7 @@ export default function Numbers() {
               key={s.label}
               className="stat-card glass glass-hover group relative overflow-hidden rounded-2xl p-6 md:p-8"
             >
+              <DropletAccent className="absolute right-4 top-4 h-6 w-[18px] text-pine-700 transition-opacity duration-300 group-hover:text-wheat-400" />
               <div className="flex items-baseline gap-1">
                 {s.text ? (
                   <span className="gold-glow font-fraunces text-4xl font-bold tabular-nums text-wheat-400 md:text-[44px]">

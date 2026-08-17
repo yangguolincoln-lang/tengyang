@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
+import { DropletField, LiquidBlob } from '@/components/Droplets'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -57,6 +58,10 @@ export default function ContactBanner() {
         <img src="/wetland-dusk.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-pine-950/75" />
       </div>
+      {/* 流体色团 + 水珠浮游 */}
+      <LiquidBlob tone="light" className="left-[6%] top-[-20%] h-[360px] w-[360px]" />
+      <LiquidBlob tone="gold" className="bottom-[-25%] right-[4%] h-[320px] w-[320px]" style={{ animationDelay: '-12s' }} />
+      <DropletField count={8} tone="light" />
 
       <div className="relative mx-auto max-w-[1280px] px-5 py-20 text-center md:px-12 md:py-32">
         <h2 className="font-serif text-3xl font-bold leading-snug text-ivory-50 md:text-4xl">

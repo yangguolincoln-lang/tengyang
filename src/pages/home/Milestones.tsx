@@ -3,6 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { FileCheck, ClipboardCheck, Tag, Award, type LucideIcon } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
+import { DropletField } from '@/components/Droplets'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -90,8 +91,9 @@ export default function Milestones() {
   }, [])
 
   return (
-    <section ref={rootRef} className="bg-pine-950 py-14 md:py-24">
-      <div className="mx-auto max-w-[1280px] px-5 md:px-12">
+    <section ref={rootRef} className="relative overflow-hidden bg-pine-950 py-14 md:py-24">
+      <DropletField count={8} tone="gold" />
+      <div className="relative mx-auto max-w-[1280px] px-5 md:px-12">
         <div className="milestone-head">
           <Eyebrow text="Achievements" />
         </div>

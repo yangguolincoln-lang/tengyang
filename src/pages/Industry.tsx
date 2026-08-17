@@ -5,6 +5,7 @@ import Infrastructure from './industry/Infrastructure'
 import Impact from './industry/Impact'
 import HumanTouch from './industry/HumanTouch'
 import ParkCta from './industry/ParkCta'
+import { WaveDivider } from '@/components/Droplets'
 
 /** 产业园区 — 黄河口滩羊产业园 */
 export default function Industry() {
@@ -16,6 +17,7 @@ export default function Industry() {
       <Infrastructure />
       <Impact />
       <HumanTouch />
+      <WaveDivider top="#FAF7F0" fill="#0B1F16" />
       <ParkCta />
     </>
   )

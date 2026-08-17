@@ -98,7 +98,7 @@ export default function PriceBoard() {
 
         {/* 趋势提示 */}
         {data && (
-          <div className="glass-dark mt-8 flex items-start gap-3 rounded-xl !border-wheat-400/30 bg-wheat-400/8 p-5">
+          <div className="glass-dark glass-liquid mt-8 flex items-start gap-3 rounded-xl !border-wheat-400/30 bg-wheat-400/8 p-5">
             <TrendingUp className="mt-0.5 h-5 w-5 shrink-0 text-wheat-400" />
             <div>
               <p className="text-sm leading-[1.8] text-ivory-50/85">{data.trend.summary}</p>

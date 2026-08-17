@@ -18,7 +18,7 @@ export default function FeaturedStory() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-20% 0px' }}
           transition={{ duration: 0.7, ease: EASE }}
-          className="overflow-hidden rounded-2xl bg-white shadow-card"
+          className="glass glass-liquid overflow-hidden rounded-2xl"
         >
           <div className="flex flex-col lg:flex-row">
             {/* 左图 55%：clip-path 从左揭示 */}

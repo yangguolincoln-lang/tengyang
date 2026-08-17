@@ -4,6 +4,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
 import WebGLBoundary from '@/components/WebGLBoundary'
+import { DropletField, LiquidBlob } from '@/components/Droplets'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -122,6 +123,12 @@ export default function Hero() {
         </Suspense>
       </WebGLBoundary>
 
+      {/* 流体色团：松绿→麦金，极低透明液态氛围 */}
+      <LiquidBlob tone="gold" className="left-[-8%] top-[12%] h-[420px] w-[420px]" />
+      <LiquidBlob tone="light" className="bottom-[-10%] right-[-6%] h-[380px] w-[380px]" style={{ animationDelay: '-9s' }} />
+      {/* 水珠浮游层 */}
+      <DropletField count={10} tone="gold" />
+
       {/* 内容 */}
       <div className="hero-content relative z-10 mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 pb-28 pt-32 md:px-12">
         <div className="max-w-3xl">
@@ -130,7 +137,7 @@ export default function Hero() {
             <span className="eyebrow">Snowflake Mutton Sheep · 黄三角肉羊</span>
             <span className="h-px w-8 bg-wheat-400/70" aria-hidden />
             {/* 成果认证金色徽章（pulse 微光，克制） */}
-            <span className="hero-badge relative inline-flex items-center gap-2 rounded-full border border-wheat-400/60 bg-wheat-400/10 px-4 py-1.5 text-xs font-medium tracking-wide text-wheat-300 backdrop-blur-sm">
+            <span className="hero-badge glass-dark glass-liquid relative inline-flex items-center gap-2 rounded-full !border-wheat-400/50 !bg-wheat-400/10 px-4 py-1.5 text-xs font-medium tracking-wide text-wheat-300">
               <span className="relative flex h-2 w-2" aria-hidden>
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-wheat-400 opacity-60" />
                 <span className="relative inline-flex h-2 w-2 rounded-full bg-wheat-400" />
