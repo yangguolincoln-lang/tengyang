@@ -98,7 +98,7 @@ export default function PriceBoard() {
 
         {/* 趋势提示 */}
         {data && (
-          <div className="mt-8 flex items-start gap-3 rounded-xl border border-wheat-400/30 bg-wheat-400/8 p-5">
+          <div className="glass-dark mt-8 flex items-start gap-3 rounded-xl !border-wheat-400/30 bg-wheat-400/8 p-5">
             <TrendingUp className="mt-0.5 h-5 w-5 shrink-0 text-wheat-400" />
             <div>
               <p className="text-sm leading-[1.8] text-ivory-50/85">{data.trend.summary}</p>
@@ -122,14 +122,14 @@ export default function PriceBoard() {
             {data.items.map((it) => (
               <article
                 key={it.id}
-                className="price-card flex flex-col rounded-2xl border border-white/10 bg-white/[0.04] p-6 transition-colors duration-300 hover:border-wheat-400/40"
+                className="price-card glass-dark glass-hover flex flex-col rounded-2xl p-6"
               >
                 <div className="flex items-center gap-2 text-xs text-ivory-50/55">
                   <Tag className="h-3.5 w-3.5 text-wheat-400" />
                   {it.date}
                 </div>
                 <h3 className="mt-3 font-serif text-base font-semibold text-ivory-50">{it.name}</h3>
-                <p className="mt-3 font-fraunces text-3xl font-bold tabular-nums text-wheat-400">
+                <p className="gold-glow mt-3 font-fraunces text-3xl font-bold tabular-nums text-wheat-400">
                   {it.value}
                   <span className="ml-1.5 text-sm font-normal text-ivory-50/60">{it.unit}</span>
                 </p>

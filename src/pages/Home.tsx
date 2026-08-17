@@ -16,13 +16,17 @@ export default function Home() {
       <Hero />
       <Manifesto />
       <Numbers />
+      <div className="seam-to-dark" aria-hidden />
       <Milestones />
       <Journey />
+      <div className="seam-to-light seam-to-ivory-100" aria-hidden />
       <BreedSpotlight />
       <TwinEngines />
+      <div className="seam-to-light" aria-hidden />
       <ProductsToolsEntry />
       <Roadmap />
       <NewsPreview />
+      <div className="seam-to-dark" aria-hidden />
       <ContactBanner />
     </>
   )

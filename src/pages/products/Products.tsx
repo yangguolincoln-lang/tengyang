@@ -152,7 +152,7 @@ function FeedProducts() {
           {FEED_LINES.map((f) => (
             <article
               key={f.name}
-              className="feed-card group flex flex-col rounded-2xl border border-pine-950/8 bg-white p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover"
+              className="feed-card glass glass-hover group flex flex-col rounded-2xl p-7"
             >
               <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-pine-700/8 text-pine-700 transition-colors duration-300 group-hover:bg-wheat-400/15 group-hover:text-wheat-600">
                 <f.icon className="h-5 w-5" />
@@ -180,7 +180,7 @@ function FeedProducts() {
           {/* 工具导流卡 */}
           <Link
             to="/tools"
-            className="feed-card group flex flex-col justify-between rounded-2xl bg-pine-950 p-7 shadow-card transition-shadow duration-300 hover:shadow-card-hover"
+            className="feed-card glass-dark glass-hover group flex flex-col justify-between rounded-2xl bg-pine-950/80 p-7"
           >
             <div>
               <span className="eyebrow">Feed Mixer</span>
@@ -258,7 +258,7 @@ function MuttonProducts() {
               { num: '6-8', label: '月龄出栏' },
             ].map((s) => (
               <div key={s.label}>
-                <p className="font-fraunces text-3xl font-bold tabular-nums text-wheat-400 md:text-4xl">
+                <p className="gold-glow font-fraunces text-3xl font-bold tabular-nums text-wheat-400 md:text-4xl">
                   {s.num}
                 </p>
                 <p className="mt-1.5 text-xs leading-relaxed text-ivory-50/60">{s.label}</p>
@@ -268,7 +268,7 @@ function MuttonProducts() {
 
           <ul className="mutton-fade mt-9 space-y-4">
             {MUTTON_FORMS.map((m) => (
-              <li key={m.title} className="rounded-xl border border-white/10 bg-white/[0.04] p-5">
+              <li key={m.title} className="glass-dark glass-hover rounded-xl p-5">
                 <h3 className="font-serif text-base font-semibold text-wheat-300">{m.title}</h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-ivory-50/70">{m.desc}</p>
               </li>
@@ -286,14 +286,14 @@ function MuttonProducts() {
 
         {/* 右栏图 */}
         <div className="relative">
-          <div className="mutton-img overflow-hidden rounded-2xl shadow-card-hover">
+          <div className="mutton-img img-frame group overflow-hidden rounded-2xl shadow-card-hover">
             <img
               src="/marble-meat.jpg"
               alt="黄河口雪花羊肉大理石花纹"
-              className="block h-auto w-full object-cover"
+              className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
             />
           </div>
-          <div className="absolute -bottom-6 left-4 rounded-2xl bg-ivory-50 px-6 py-4 shadow-card-hover md:-left-6 md:px-8 md:py-5">
+          <div className="glass absolute -bottom-6 left-4 rounded-2xl px-6 py-4 shadow-card-hover md:-left-6 md:px-8 md:py-5">
             <p className="font-fraunces text-2xl font-bold text-pine-700 md:text-3xl">超白羊</p>
             <p className="mt-1 text-sm text-ink-600">黄河口雪花羊肉品牌</p>
           </div>
@@ -308,6 +308,7 @@ export default function Products() {
     <>
       <ProductsHero />
       <FeedProducts />
+      <div className="seam-to-dark" aria-hidden />
       <MuttonProducts />
     </>
   )

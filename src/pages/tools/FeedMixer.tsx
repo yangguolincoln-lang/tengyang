@@ -220,7 +220,7 @@ export default function FeedMixer() {
 
         <div className="mt-10 grid gap-8 lg:grid-cols-[380px_1fr]">
           {/* 参数面板 */}
-          <div className="h-fit rounded-2xl border border-pine-950/8 bg-white p-6 shadow-card md:p-7">
+          <div className="glass h-fit rounded-2xl p-6 md:p-7">
             <h3 className="flex items-center gap-2 font-serif text-lg font-bold text-ink-900">
               <Calculator className="h-5 w-5 text-wheat-400" />
               参数设置
@@ -338,7 +338,7 @@ export default function FeedMixer() {
             transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
             className="print-area"
           >
-            <div className="rounded-2xl border border-pine-950/8 bg-white p-6 shadow-card md:p-8">
+            <div className="glass rounded-2xl p-6 md:p-8">
               <div className="flex flex-wrap items-start justify-between gap-4">
                 <div>
                   <h3 className="font-serif text-xl font-bold text-ink-900">{recipe.label} · 日粮配方</h3>

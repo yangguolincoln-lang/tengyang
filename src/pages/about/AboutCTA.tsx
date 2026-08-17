@@ -59,7 +59,7 @@ export default function AboutCTA() {
           <span className="about-cta-btn inline-block">
             <Link
               to="/breed"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-8 py-3.5 font-bold text-pine-950 transition-all duration-300 hover:scale-[1.03] hover:shadow-card-hover active:scale-95"
+              className="btn-glow group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-8 py-3.5 font-bold text-pine-950 transition-all duration-300 hover:scale-[1.03] active:scale-95"
             >
               探索核心品种
               <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />

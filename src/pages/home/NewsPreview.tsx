@@ -83,9 +83,9 @@ export default function NewsPreview() {
             <Link
               key={n.title}
               to="/news"
-              className="news-card group overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
+              className="news-card glass glass-hover group overflow-hidden rounded-2xl"
             >
-              <div className="relative aspect-[4/3] overflow-hidden">
+              <div className="img-frame relative aspect-[4/3] overflow-hidden">
                 <img
                   src={n.image}
                   alt={n.alt}

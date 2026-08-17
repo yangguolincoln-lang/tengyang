@@ -105,10 +105,10 @@ export default function Milestones() {
             return (
               <article
                 key={m.date}
-                className={`milestone-card group relative rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1.5 md:p-7 ${
+                className={`milestone-card glass-hover group relative rounded-2xl border p-6 md:p-7 ${
                   m.highlight
-                    ? 'milestone-glow border-wheat-400/80 bg-pine-900/70 shadow-card-hover lg:scale-[1.04]'
-                    : 'border-white/10 bg-pine-900/50 hover:border-wheat-400/40'
+                    ? 'milestone-glow glass-dark !border-wheat-400/60 shadow-card-hover lg:scale-[1.04]'
+                    : 'glass-dark'
                 }`}
               >
                 <div className="flex items-center justify-between">

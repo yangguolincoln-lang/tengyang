@@ -72,7 +72,7 @@ export default function ContactBanner() {
         <div className="cta-button mt-9 inline-block">
           <Link
             to="/contact"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-9 py-4 text-lg font-bold text-pine-950 transition-all duration-300 hover:scale-[1.04] hover:shadow-card-hover active:scale-95"
+            className="btn-glow group inline-flex items-center gap-2.5 rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-9 py-4 text-lg font-bold text-pine-950 transition-all duration-300 hover:scale-[1.04] active:scale-95"
           >
             在线留言合作
             <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1.5" />

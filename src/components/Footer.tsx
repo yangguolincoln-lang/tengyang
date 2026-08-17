@@ -32,8 +32,11 @@ export default function Footer() {
 
   return (
     <footer ref={rootRef} className="relative overflow-hidden bg-pine-950 text-ivory-50">
-      {/* 顶部金色渐变线 */}
-      <div className="gold-gradient-line h-px w-full" aria-hidden />
+      {/* 顶部细分隔线：金色渐变 + 柔光晕 */}
+      <div className="relative h-px w-full" aria-hidden>
+        <div className="gold-gradient-line absolute inset-0" />
+        <div className="absolute inset-x-0 -top-px h-[3px] bg-gradient-to-r from-transparent via-wheat-400/25 to-transparent blur-[2px]" />
+      </div>
 
       {/* 背景水印（仅桌面） */}
       <div

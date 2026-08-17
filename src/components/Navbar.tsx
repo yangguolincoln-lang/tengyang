@@ -47,7 +47,7 @@ export default function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'h-16 bg-ivory-50/90 text-ink-900 shadow-[0_1px_0_rgba(217,164,65,0.35)] backdrop-blur-md'
+            ? 'h-16 bg-ivory-50/70 text-ink-900 shadow-[0_1px_0_rgba(217,164,65,0.45),0_10px_34px_rgba(11,31,22,0.10)] backdrop-blur-xl'
             : 'h-20 bg-transparent text-ivory-50',
         )}
       >
@@ -118,7 +118,7 @@ export default function Navbar() {
               to="/contact"
               className={cn(
                 'hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex',
-                'bg-gradient-to-r from-wheat-400 to-wheat-300 text-pine-950 hover:scale-[1.03] hover:shadow-card-hover active:scale-95',
+                'btn-glow bg-gradient-to-r from-wheat-400 to-wheat-300 text-pine-950 hover:scale-[1.03] active:scale-95',
               )}
             >
               在线留言

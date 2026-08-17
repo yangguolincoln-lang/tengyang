@@ -82,17 +82,17 @@ export default function Numbers() {
           {STATS.map((s) => (
             <div
               key={s.label}
-              className="stat-card group relative overflow-hidden rounded-2xl bg-white p-6 shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover md:p-8"
+              className="stat-card glass glass-hover group relative overflow-hidden rounded-2xl p-6 md:p-8"
             >
               <div className="flex items-baseline gap-1">
                 {s.text ? (
-                  <span className="font-fraunces text-4xl font-bold tabular-nums text-wheat-400 md:text-[44px]">
+                  <span className="gold-glow font-fraunces text-4xl font-bold tabular-nums text-wheat-400 md:text-[44px]">
                     {s.text}
                   </span>
                 ) : (
                   <>
                     <span
-                      className="stat-value font-fraunces text-4xl font-bold tabular-nums text-wheat-400 md:text-[56px]"
+                      className="stat-value gold-glow font-fraunces text-4xl font-bold tabular-nums text-wheat-400 md:text-[56px]"
                       data-value={s.value}
                     >
                       0

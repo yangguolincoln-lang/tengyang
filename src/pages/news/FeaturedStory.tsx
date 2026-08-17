@@ -40,7 +40,7 @@ export default function FeaturedStory() {
                 <span className="rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-4 py-1.5 text-xs font-bold text-pine-950">
                   2026 · 头条
                 </span>
-                <span className="rounded-full border border-ivory-50/80 bg-pine-950/40 px-4 py-1.5 text-xs font-medium text-ivory-50 backdrop-blur-sm">
+                <span className="rounded-full border border-ivory-50/60 bg-pine-950/40 px-4 py-1.5 text-xs font-medium text-ivory-50 backdrop-blur-md shadow-card">
                   里程碑
                 </span>
               </div>
