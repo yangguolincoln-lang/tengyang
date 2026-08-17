@@ -32,7 +32,7 @@ export default function FeaturedStory() {
               >
                 <img
                   src="/news-cert.jpg"
-                  alt="新品系成果认证会议现场，专家审阅材料"
+                  alt="黄河口滩羊产业技术研究院育种科研场景"
                   className="h-full w-full object-cover"
                 />
               </motion.div>
@@ -58,19 +58,19 @@ export default function FeaturedStory() {
                 variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
                 className="font-fraunces text-sm font-semibold tracking-widest text-wheat-600"
               >
-                2026.04
+                2026.08
               </motion.p>
               <motion.h2
                 variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
                 className="mt-4 font-serif text-2xl font-semibold leading-[1.5] text-ink-900 md:text-[26px]"
               >
-                黄三角肉羊通过新品系成果认证 —— 我国首个自主培育的专门化雪花肉羊新品系
+                全基因组测序锁定雪花性状主效基因 —— 盐碱地上一只羊的「百亿逆袭」
               </motion.h2>
               <motion.p
                 variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
                 className="mt-5 text-sm leading-[1.9] text-ink-600 md:text-base"
               >
-                2026 年 4 月底，黄三角肉羊正式通过新品系成果认证，彻底打破国外对高端雪花肉羊种质资源的长期垄断，标志着我国高端肉羊种源实现自主可控。
+                2026 年 8 月 7 日，山东新闻网重磅报道：黄河口滩羊产业技术研究院完成 2 万余份样本全基因组测序，锁定控制「雪花」性状的主效基因；核心群已培育 3000 多只，2025 年黄河口滩羊全产业链产值达 131.7 亿元。来源：山东新闻网（2026-08-07）
               </motion.p>
               <motion.div
                 variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: EASE } } }}
@@ -109,9 +109,9 @@ export default function FeaturedStory() {
                   className="bg-ivory-50/60 p-7 md:p-10"
                 >
                   {[
-                    '认证历程回顾：2023 年 5 月，繁育科研项目进入中试阶段，雪花肉羊从实验室走向规模化验证；2024 年 1 月 10 日，新品种生产性能测定暨现场初审通过，专家组一致认为「黄三角肉羊」具备新品种申报条件。',
-                    '2026 年 4 月底，黄三角肉羊正式通过新品系成果认证，成为我国首个自主培育的专门化雪花肉羊新品系，彻底打破国外对高端雪花肉羊种质资源的长期垄断。',
-                    '成果引发广泛关注，CCTV 地方频道、山东新闻网、中国日报网等多家主流媒体集中报道，「盐碱地育出高端雪花羊」成为乡村振兴的热点样本。',
+                    '科研突破：黄河口滩羊产业技术研究院通过 2 万余份样本全基因组测序与 2 万余只表型数据库，锁定控制「雪花」性状的主效基因，培育出遗传稳定、肌间脂肪丰富的黄三角肉羊，单只可稳定产出雪花肉 20 斤。',
+                    '产业规模：目前已培育 3000 多只核心群，2026 年 4 月底通过新品系成果认证；2025 年黄河口滩羊全产业链产值 131.7 亿元，带动 3.5 万人从业。',
+                    '下一步计划：待群体扩至 2 万只后，将申报农业农村部新品种审定，争取跻身《国家畜禽遗传资源品种名录》。（来源：山东新闻网，2026-08-07，http://sd.sdnews.com.cn/yw/202608/t20260807_4719212.htm）',
                   ].map((text) => (
                     <motion.p
                       key={text.slice(0, 12)}
