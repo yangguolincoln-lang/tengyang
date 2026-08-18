@@ -1,5 +1,6 @@
 import AboutHero from './about/AboutHero'
 import WhoWeAre from './about/WhoWeAre'
+import BrandName from './about/BrandName'
 import Beliefs from './about/Beliefs'
 import Timeline from './about/Timeline'
 import IPShowcase from './about/IPShowcase'
@@ -11,6 +12,7 @@ export default function About() {
     <>
       <AboutHero />
       <WhoWeAre />
+      <BrandName />
       <Beliefs />
       <Timeline />
       <IPShowcase />

@@ -66,6 +66,9 @@ export default function Footer() {
             <p className="mt-5 font-serif text-lg leading-relaxed text-ivory-50/85">
               让高端肉羊种源，自主可控。
             </p>
+            <p className="mt-2 text-xs tracking-[0.18em] text-ivory-50/45">
+              腾跃海洋之志 · 育种纯粹之心
+            </p>
             <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-ivory-50/60">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-wheat-400" />
               山东省东营市利津县盐窝镇 · 黄河口滩羊产业园

@@ -5,6 +5,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ArrowRight } from 'lucide-react'
 import WebGLBoundary from '@/components/WebGLBoundary'
 import { DropletField, LiquidBlob } from '@/components/Droplets'
+import { FlowingWaves } from '@/components/OceanCurves'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -128,6 +129,8 @@ export default function Hero() {
       <LiquidBlob tone="light" className="bottom-[-10%] right-[-6%] h-[380px] w-[380px]" style={{ animationDelay: '-9s' }} />
       {/* 水珠浮游层 */}
       <DropletField count={10} tone="gold" />
+      {/* 底部流动海浪线：黄河入海口 · 海洋曲线意象 */}
+      <FlowingWaves />
 
       {/* 内容 */}
       <div className="hero-content relative z-10 mx-auto flex w-full max-w-[1280px] flex-1 flex-col justify-center px-5 pb-28 pt-32 md:px-12">

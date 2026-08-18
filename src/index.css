@@ -240,6 +240,27 @@
     }
   }
 
+  /* 海洋曲线：正弦描边流动（stroke-dashoffset 循环，方向交错如涌动） */
+  .ocean-wave {
+    animation: ocean-wave-flow linear infinite;
+    will-change: stroke-dashoffset;
+  }
+  .ocean-wave-1 {
+    animation-duration: 14s;
+  }
+  .ocean-wave-2 {
+    animation-duration: 19s;
+    animation-direction: reverse;
+  }
+  .ocean-wave-3 {
+    animation-duration: 26s;
+  }
+  @keyframes ocean-wave-flow {
+    to {
+      stroke-dashoffset: -360;
+    }
+  }
+
   .seam-to-ivory-100 {
     background: linear-gradient(to bottom, #0b1f16 0%, rgba(11, 31, 22, 0.45) 45%, #f3eee2 100%);
   }
@@ -258,7 +279,8 @@
 /* 减弱动效：停用装饰性动画 */
 @media (prefers-reduced-motion: reduce) {
   .droplet,
-  .liquid-blob {
+  .liquid-blob,
+  .ocean-wave {
     animation: none !important;
   }
 }

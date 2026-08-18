@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import gsap from 'gsap'
 import Eyebrow from '@/components/Eyebrow'
+import { FlowingWaves } from '@/components/OceanCurves'
 
 /** 关于我们 · 子页 Hero：60vh 横幅，湿地黄昏背景 + 渐变遮罩 */
 export default function AboutHero() {
@@ -60,6 +61,9 @@ export default function AboutHero() {
           山东腾洋育纯农牧科技有限公司 —— 一家扎根黄河口滩羊产业园的肉羊种业科技企业。
         </p>
       </div>
+
+      {/* 底部流动海浪线：黄河入海口 · 海洋曲线意象 */}
+      <FlowingWaves className="bottom-1" />
 
       {/* 底部金线生长 */}
       <div className="about-hero-line relative h-px w-full origin-left bg-gradient-to-r from-wheat-400 via-wheat-400/60 to-transparent" />
