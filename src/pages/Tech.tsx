@@ -3,6 +3,7 @@ import GbsChip from './tech/GbsChip'
 import Patent from './tech/Patent'
 import Partners from './tech/Partners'
 import LabGallery from './tech/LabGallery'
+import IntlCoop from './tech/IntlCoop'
 import TechCta from './tech/TechCta'
 
 export default function Tech() {
@@ -13,6 +14,7 @@ export default function Tech() {
       <Patent />
       <Partners />
       <LabGallery />
+      <IntlCoop />
       <TechCta />
     </>
   )
