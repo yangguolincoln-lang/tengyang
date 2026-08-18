@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import { Printer, Calculator, Info } from 'lucide-react'
+import { Printer, Calculator, Info, Copy, Check, RotateCcw, PencilLine } from 'lucide-react'
 import Eyebrow from '@/components/Eyebrow'
 
 /* ------------------------------------------------------------------ */
@@ -179,6 +179,10 @@ export default function FeedMixer() {
   const [count, setCount] = useState(500)
   const [weightJin, setWeightJin] = useState(80)
   const [adg, setAdg] = useState(300)
+  /** 原料价格覆盖值，key 为 `${recipeKey}|${原料名}` */
+  const [priceEdits, setPriceEdits] = useState<Record<string, number>>({})
+  const [editingPrice, setEditingPrice] = useState<string | null>(null)
+  const [copied, setCopied] = useState(false)
 
   const groupMeta = GROUPS.find((g) => g.key === group)!
   const isBreedingStock = group === 'ewe' || group === 'ram'
@@ -193,16 +197,82 @@ export default function FeedMixer() {
       ? Math.min(Math.max(adg / recipe.refAdg, 0.8), 1.2)
       : 1
     const dmiPerHead = weightKg * (recipe.dmiPct / 100) * adgFactor // kg/只/天（风干）
-    const rows = recipe.ingredients.map((ing) => ({
-      ...ing,
-      perHead: (dmiPerHead * ing.pct) / 100,
-      total: (dmiPerHead * ing.pct * n) / 100,
-    }))
-    const costPerKg = recipe.ingredients.reduce((s, i) => s + (i.pct / 100) * i.price, 0)
+    const rows = recipe.ingredients.map((ing) => {
+      const price = priceEdits[`${recipeKey}|${ing.name}`] ?? ing.price
+      return {
+        ...ing,
+        price,
+        defaultPrice: ing.price,
+        perHead: (dmiPerHead * ing.pct) / 100,
+        total: (dmiPerHead * ing.pct * n) / 100,
+      }
+    })
+    const costPerKg = rows.reduce((s, i) => s + (i.pct / 100) * i.price, 0)
     const costPerHead = dmiPerHead * costPerKg
     const costTotal = costPerHead * n
     return { dmiPerHead, rows, costPerHead, costTotal, n }
-  }, [group, stage, count, weightJin, adg, isBreedingStock, recipe])
+  }, [group, stage, count, weightJin, adg, isBreedingStock, recipe, recipeKey, priceEdits])
+
+  const hasCustomPrice = recipe.ingredients.some((ing) => priceEdits[`${recipeKey}|${ing.name}`] !== undefined)
+
+  const commitPrice = (name: string, raw: string) => {
+    const key = `${recipeKey}|${name}`
+    const num = Number(raw)
+    if (raw.trim() !== '' && Number.isFinite(num) && num >= 0) {
+      const v = Math.round(num * 100) / 100
+      setPriceEdits((prev) => ({ ...prev, [key]: v }))
+    } else {
+      setPriceEdits((prev) => {
+        const next = { ...prev }
+        delete next[key]
+        return next
+      })
+    }
+    setEditingPrice(null)
+  }
+
+  const resetPrices = () => {
+    setPriceEdits((prev) => {
+      const next = { ...prev }
+      recipe.ingredients.forEach((ing) => delete next[`${recipeKey}|${ing.name}`])
+      return next
+    })
+    setEditingPrice(null)
+  }
+
+  const copyRecipeText = async () => {
+    const lines = [
+      '【山东腾洋育纯 · 饲料配方单】',
+      `群体/阶段：${groupMeta.label} · ${recipe.label}`,
+      `推荐精粗比：${recipe.ratioText}`,
+      `参数：存栏 ${result.n} 只，平均体重 ${weightJin} 斤` +
+        (!isBreedingStock ? `，目标日增重 ${adg} 克/天` : ''),
+      `风干日粮喂量：${fmt(result.dmiPerHead, 2)} kg/只·天`,
+      '',
+      '原料 | 占比 | 单价(元/kg) | 单只日用量 | 全场日用量',
+      ...result.rows.map(
+        (r) => `${r.name} | ${fmt(r.pct)}% | ${r.price.toFixed(2)} | ${fmt(r.perHead, 2)} kg | ${fmt(r.total, 0)} kg`,
+      ),
+      `合计 | 100% | — | ${fmt(result.dmiPerHead, 2)} kg | ${fmt(result.dmiPerHead * result.n, 0)} kg`,
+      '',
+      `单只日饲喂成本（估）：¥${fmt(result.costPerHead, 2)}`,
+      `全场日饲喂成本（估）：¥${fmt(result.costTotal, 0)}`,
+      `生成日期：${new Date().toLocaleDateString('zh-CN')}`,
+      '说明：通用参考方案，实际生产请结合原料实测营养值与当地行情调整。',
+    ].join('\n')
+    try {
+      await navigator.clipboard.writeText(lines)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = lines
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 2000)
+  }
 
   const inputCls =
     'w-full rounded-lg border border-pine-950/15 bg-white px-4 py-2.5 text-sm text-ink-900 outline-none transition-colors focus:border-wheat-400 focus:ring-2 focus:ring-wheat-400/25'
@@ -357,32 +427,100 @@ export default function FeedMixer() {
               </div>
 
               {/* 配方表 */}
-              <div className="mt-6 overflow-x-auto">
-                <table className="w-full min-w-[520px] text-sm">
+              <div className="mt-6 flex flex-wrap items-center justify-between gap-3">
+                <p className="flex items-center gap-1.5 text-xs text-ink-400">
+                  <PencilLine className="h-3.5 w-3.5 text-wheat-400" />
+                  点击单价可修改，成本实时重算
+                </p>
+                <div className="flex flex-wrap items-center gap-2">
+                  {hasCustomPrice && (
+                    <button
+                      type="button"
+                      onClick={resetPrices}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-pine-950/15 px-3.5 py-1.5 text-xs font-medium text-ink-600 transition-colors hover:bg-ivory-100"
+                    >
+                      <RotateCcw className="h-3.5 w-3.5" />
+                      恢复默认价
+                    </button>
+                  )}
+                  <button
+                    type="button"
+                    onClick={copyRecipeText}
+                    className={
+                      copied
+                        ? 'inline-flex items-center gap-1.5 rounded-full bg-pine-700 px-3.5 py-1.5 text-xs font-medium text-ivory-50 transition-colors'
+                        : 'inline-flex items-center gap-1.5 rounded-full border border-wheat-400/60 px-3.5 py-1.5 text-xs font-medium text-wheat-600 transition-colors hover:bg-wheat-400/10'
+                    }
+                  >
+                    {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                    {copied ? '已复制到剪贴板' : '复制配方文本'}
+                  </button>
+                </div>
+              </div>
+              <div className="mt-3 overflow-x-auto">
+                <table className="w-full min-w-[560px] text-sm">
                   <thead>
                     <tr className="border-b border-pine-950/10 text-left text-xs uppercase tracking-wider text-ink-400">
                       <th className="py-3 pr-4 font-medium">原料</th>
+                      <th className="py-3 pr-4 font-medium">单价（元/kg）</th>
                       <th className="py-3 pr-4 font-medium">占比</th>
                       <th className="py-3 pr-4 font-medium">单只日用量</th>
                       <th className="py-3 font-medium">全场日用量（{result.n} 只）</th>
                     </tr>
                   </thead>
                   <tbody>
-                    {result.rows.map((r) => (
-                      <tr key={r.name} className="border-b border-pine-950/5">
-                        <td className="py-3 pr-4 font-medium text-ink-900">
-                          {r.name}
-                          <span className="ml-2 text-xs font-normal text-ink-400">
-                            {r.kind === 'concentrate' ? '精料' : r.kind === 'roughage' ? '粗料' : '添加剂'}
-                          </span>
-                        </td>
-                        <td className="py-3 pr-4 tabular-nums text-ink-600">{fmt(r.pct)}%</td>
-                        <td className="py-3 pr-4 tabular-nums text-ink-600">{fmt(r.perHead, 2)} kg</td>
-                        <td className="py-3 tabular-nums font-medium text-pine-700">{fmt(r.total, 0)} kg</td>
-                      </tr>
-                    ))}
+                    {result.rows.map((r) => {
+                      const priceKey = `${recipeKey}|${r.name}`
+                      const isEditing = editingPrice === priceKey
+                      const isCustom = r.price !== r.defaultPrice
+                      return (
+                        <tr key={r.name} className="border-b border-pine-950/5">
+                          <td className="py-3 pr-4 font-medium text-ink-900">
+                            {r.name}
+                            <span className="ml-2 text-xs font-normal text-ink-400">
+                              {r.kind === 'concentrate' ? '精料' : r.kind === 'roughage' ? '粗料' : '添加剂'}
+                            </span>
+                          </td>
+                          <td className="py-3 pr-4 tabular-nums">
+                            {isEditing ? (
+                              <input
+                                type="number"
+                                min={0}
+                                step={0.01}
+                                autoFocus
+                                defaultValue={r.price.toFixed(2)}
+                                onBlur={(e) => commitPrice(r.name, e.target.value)}
+                                onKeyDown={(e) => {
+                                  if (e.key === 'Enter') commitPrice(r.name, e.currentTarget.value)
+                                  if (e.key === 'Escape') setEditingPrice(null)
+                                }}
+                                className="w-24 rounded-md border border-wheat-400 bg-white px-2 py-1 text-sm text-ink-900 outline-none ring-2 ring-wheat-400/25"
+                              />
+                            ) : (
+                              <button
+                                type="button"
+                                onClick={() => setEditingPrice(priceKey)}
+                                title="点击修改单价"
+                                className={
+                                  isCustom
+                                    ? 'rounded-md bg-wheat-400/15 px-2 py-1 font-semibold text-wheat-600 transition-colors hover:bg-wheat-400/25'
+                                    : 'rounded-md px-2 py-1 text-ink-600 transition-colors hover:bg-wheat-400/15 hover:text-pine-700'
+                                }
+                              >
+                                {r.price.toFixed(2)}
+                                {isCustom && <span className="ml-1 text-[10px]">（改）</span>}
+                              </button>
+                            )}
+                          </td>
+                          <td className="py-3 pr-4 tabular-nums text-ink-600">{fmt(r.pct)}%</td>
+                          <td className="py-3 pr-4 tabular-nums text-ink-600">{fmt(r.perHead, 2)} kg</td>
+                          <td className="py-3 tabular-nums font-medium text-pine-700">{fmt(r.total, 0)} kg</td>
+                        </tr>
+                      )
+                    })}
                     <tr className="text-sm font-semibold text-ink-900">
                       <td className="py-3 pr-4">合计</td>
+                      <td className="py-3 pr-4" />
                       <td className="py-3 pr-4 tabular-nums">100%</td>
                       <td className="py-3 pr-4 tabular-nums">{fmt(result.dmiPerHead, 2)} kg</td>
                       <td className="py-3 tabular-nums text-pine-700">

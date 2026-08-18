@@ -91,7 +91,7 @@ export default function BreedingRoute() {
   return (
     <section ref={rootRef} className="relative overflow-hidden bg-ivory-50 py-14 md:py-24">
       {/* route-map.svg 底图装饰（低透明度，仅桌面） */}
-      <img
+      <img loading="lazy"
         src="/route-map.svg"
         alt=""
         aria-hidden

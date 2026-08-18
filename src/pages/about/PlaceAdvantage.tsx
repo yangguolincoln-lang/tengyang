@@ -64,7 +64,7 @@ export default function PlaceAdvantage() {
     <section ref={rootRef} className="relative overflow-hidden">
       {/* 背景 + 深绿遮罩 65% */}
       <div className="place-bg absolute -inset-y-[12%] inset-x-0" aria-hidden>
-        <img src="/aerial-park.jpg" alt="" className="h-full w-full object-cover" />
+        <img loading="lazy" src="/aerial-park.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-pine-950/65" />
       </div>
 

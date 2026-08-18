@@ -30,7 +30,7 @@ export default function FeaturedStory() {
                 transition={{ duration: 0.9, ease: EASE }}
                 className="h-64 overflow-hidden sm:h-80 lg:h-full lg:min-h-[420px]"
               >
-                <img
+                <img loading="lazy"
                   src="/news-cert.jpg"
                   alt="黄河口滩羊产业技术研究院育种科研场景"
                   className="h-full w-full object-cover"

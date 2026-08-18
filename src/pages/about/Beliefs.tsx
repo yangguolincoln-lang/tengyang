@@ -44,7 +44,7 @@ const RotatingHelix = memo(function RotatingHelix() {
   }, [])
 
   return (
-    <img
+    <img loading="lazy"
       ref={ref}
       src="/dna-helix.svg"
       alt=""

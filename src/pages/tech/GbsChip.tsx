@@ -115,7 +115,7 @@ export default function GbsChip() {
         {/* 左栏：芯片图 + 浮动数据徽章 */}
         <div className="relative">
           <div className="gbs-img overflow-hidden rounded-2xl shadow-card">
-            <img
+            <img loading="lazy"
               src="/gene-chip.jpg"
               alt="GBS 肉羊基因检测液相芯片微孔板"
               className="block h-auto w-full object-cover"

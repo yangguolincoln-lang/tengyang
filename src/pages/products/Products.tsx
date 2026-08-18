@@ -75,7 +75,7 @@ function ProductsHero() {
       className="relative -mt-20 flex min-h-[55dvh] flex-col overflow-hidden bg-pine-950"
     >
       <div className="absolute inset-0">
-        <img
+        <img loading="lazy"
           src="/marble-meat.jpg"
           alt="雪花羊肉大理石花纹特写"
           className="pd-hero-bg h-full w-full object-cover will-change-transform"
@@ -287,7 +287,7 @@ function MuttonProducts() {
         {/* 右栏图 */}
         <div className="relative">
           <div className="mutton-img img-frame group overflow-hidden rounded-2xl shadow-card-hover">
-            <img
+            <img loading="lazy"
               src="/marble-meat.jpg"
               alt="黄河口雪花羊肉大理石花纹"
               className="block h-auto w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"

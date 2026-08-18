@@ -27,7 +27,7 @@ function ToolsHero() {
       className="relative -mt-20 flex min-h-[55dvh] flex-col overflow-hidden bg-pine-950"
     >
       <div className="absolute inset-0">
-        <img
+        <img loading="lazy"
           src="/flock-pasture.jpg"
           alt="黄河口滩羊牧场羊群"
           className="tl-hero-bg h-full w-full object-cover will-change-transform"

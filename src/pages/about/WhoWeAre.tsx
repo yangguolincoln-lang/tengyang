@@ -24,7 +24,7 @@ const FloatingLambCard = memo(function FloatingLambCard() {
 
   return (
     <div ref={ref} className="will-change-transform">
-      <img
+      <img loading="lazy"
         src="/lamb-closeup.jpg"
         alt="黄河口羔羊特写"
         className="w-40 rounded-xl border-[6px] border-white object-cover shadow-card-hover md:w-56"
@@ -112,7 +112,7 @@ export default function WhoWeAre() {
         {/* 右栏 · 大图 + 浮动小卡 */}
         <div className="relative">
           <div className="who-photo overflow-hidden rounded-2xl">
-            <img
+            <img loading="lazy"
               src="/flock-pasture.jpg"
               alt="黄河口盐碱地牧场黄昏羊群"
               className="h-64 w-full object-cover md:h-[420px]"

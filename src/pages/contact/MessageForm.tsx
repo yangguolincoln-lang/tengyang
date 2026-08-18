@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { ChangeEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { CheckCircle2, ChevronDown, Loader2, Send } from 'lucide-react'
+import { CheckCircle2, ChevronDown, Copy, Check, Loader2, Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const DIRECTIONS = ['引种合作', '科研合作', '产品与渠道合作', '媒体采访', '其他']
@@ -85,6 +85,33 @@ export default function MessageForm() {
   const [errors, setErrors] = useState<Errors>({})
   const [focused, setFocused] = useState<string | null>(null)
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
+  const [copied, setCopied] = useState(false)
+
+  const buildSummary = () =>
+    [
+      '【腾洋育纯 · 留言摘要】',
+      `称呼：${data.name.trim()}`,
+      `联系方式：${data.contact.trim()}`,
+      `合作方向：${data.direction || '未选择'}`,
+      `留言内容：${data.message.trim()}`,
+      `提交时间：${new Date().toLocaleString('zh-CN')}`,
+    ].join('\n')
+
+  const copySummary = async () => {
+    const text = buildSummary()
+    try {
+      await navigator.clipboard.writeText(text)
+    } catch {
+      const ta = document.createElement('textarea')
+      ta.value = text
+      document.body.appendChild(ta)
+      ta.select()
+      document.execCommand('copy')
+      document.body.removeChild(ta)
+    }
+    setCopied(true)
+    window.setTimeout(() => setCopied(false), 2000)
+  }
 
   const set = (key: keyof FormData) => (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setData((d) => ({ ...d, [key]: e.target.value }))
@@ -142,7 +169,7 @@ export default function MessageForm() {
               transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
               className="flex flex-col items-center overflow-hidden py-8 text-center"
             >
-              <img
+              <img loading="lazy"
                 src="/lamb-closeup.jpg"
                 alt="羔羊特写"
                 className="h-20 w-20 rounded-full border-4 border-ivory-100 object-cover shadow-card"
@@ -157,6 +184,22 @@ export default function MessageForm() {
               <p className="mt-4 max-w-sm font-serif text-lg font-semibold leading-relaxed text-ink-900">
                 留言已提交，感谢您的信任！我们会尽快与您联系。
               </p>
+              <p className="mt-2 text-xs text-ink-400">可复制下方摘要留存，也可截图保存本页。</p>
+              <div className="mt-5 w-full max-w-sm rounded-xl border border-pine-950/10 bg-ivory-50/80 p-4 text-left">
+                <p className="whitespace-pre-wrap text-xs leading-relaxed text-ink-600">{buildSummary()}</p>
+                <button
+                  type="button"
+                  onClick={copySummary}
+                  className={
+                    copied
+                      ? 'mt-3 inline-flex items-center gap-1.5 rounded-full bg-pine-700 px-4 py-2 text-xs font-medium text-ivory-50 transition-colors'
+                      : 'mt-3 inline-flex items-center gap-1.5 rounded-full border border-wheat-400/70 px-4 py-2 text-xs font-medium text-wheat-600 transition-colors hover:bg-wheat-400/10'
+                  }
+                >
+                  {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+                  {copied ? '已复制' : '一键复制留言摘要'}
+                </button>
+              </div>
               <button
                 type="button"
                 onClick={handleReset}

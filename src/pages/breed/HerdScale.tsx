@@ -72,7 +72,7 @@ export default function HerdScale() {
   return (
     <section ref={rootRef} className="relative overflow-hidden py-24 md:py-36">
       <div className="herd-bg absolute -inset-y-[15%] inset-x-0" aria-hidden>
-        <img src="/flock-pasture.jpg" alt="" className="h-full w-full object-cover" />
+        <img loading="lazy" src="/flock-pasture.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-pine-950/60" />
       </div>
 

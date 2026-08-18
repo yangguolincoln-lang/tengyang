@@ -68,7 +68,7 @@ export default function ProductsToolsEntry() {
               className="pt-card group relative block overflow-hidden rounded-2xl border border-pine-950/10"
             >
               <div className="absolute inset-0">
-                <img
+                <img loading="lazy"
                   src={c.image}
                   alt={c.alt}
                   className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.06]"

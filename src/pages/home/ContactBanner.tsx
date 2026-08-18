@@ -55,7 +55,7 @@ export default function ContactBanner() {
   return (
     <section ref={rootRef} className="relative overflow-hidden">
       <div className="cta-bg absolute -inset-y-[15%] inset-x-0" aria-hidden>
-        <img src="/wetland-dusk.jpg" alt="" className="h-full w-full object-cover" />
+        <img loading="lazy" src="/wetland-dusk.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-pine-950/75" />
       </div>
       {/* 流体色团 + 水珠浮游 */}

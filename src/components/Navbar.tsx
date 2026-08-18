@@ -54,7 +54,7 @@ export default function Navbar() {
         <div className="mx-auto flex h-full max-w-[1280px] items-center justify-between px-5 md:px-12">
           {/* Logo */}
           <Link to="/" className="group flex items-center gap-3" aria-label="腾洋育纯首页">
-            <img
+            <img loading="lazy"
               src="/logo-icon.png"
               alt="腾洋育纯标识"
               className={cn(

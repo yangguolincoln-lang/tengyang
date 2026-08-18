@@ -92,7 +92,7 @@ export default function Patent() {
   return (
     <section ref={rootRef} className="relative overflow-hidden bg-pine-900 py-14 md:py-24">
       {/* DNA 装饰水印 */}
-      <img
+      <img loading="lazy"
         src="/dna-helix.svg"
         alt=""
         aria-hidden

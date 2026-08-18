@@ -158,7 +158,7 @@ export default function Journey() {
     >
       {/* 背景图 12% 透明度铺底 */}
       <div className="journey-bg pointer-events-none absolute inset-0 scale-110" aria-hidden>
-        <img src="/flock-pasture.jpg" alt="" className="h-full w-full object-cover opacity-[0.12]" />
+        <img loading="lazy" src="/flock-pasture.jpg" alt="" className="h-full w-full object-cover opacity-[0.12]" />
       </div>
 
       <div className="relative mx-auto w-full max-w-[1280px] px-5 md:px-12">

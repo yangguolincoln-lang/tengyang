@@ -102,7 +102,7 @@ export default function Marbling() {
         <div className="marble-visual relative mx-auto mt-12 md:w-[60%]">
           <div className="relative overflow-hidden rounded-2xl shadow-card-hover">
             <div className="marble-img will-change-transform">
-              <img
+              <img loading="lazy"
                 src="/marble-meat.jpg"
                 alt="雪花羊肉大理石花纹微距特写"
                 className="block h-auto w-full scale-110 object-cover"

@@ -54,7 +54,7 @@ export default function LabGallery() {
           className="lab-panel group relative h-64 overflow-hidden md:h-[420px]"
           data-from={p.from}
         >
-          <img
+          <img loading="lazy"
             src={p.src}
             alt={p.alt}
             className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"

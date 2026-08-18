@@ -86,7 +86,7 @@ export default function NewsPreview() {
               className="news-card glass glass-hover group overflow-hidden rounded-2xl"
             >
               <div className="img-frame relative aspect-[4/3] overflow-hidden">
-                <img
+                <img loading="lazy"
                   src={n.image}
                   alt={n.alt}
                   className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"

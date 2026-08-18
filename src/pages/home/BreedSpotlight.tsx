@@ -67,7 +67,7 @@ export default function BreedSpotlight() {
         {/* 左栏大图 */}
         <div className="relative">
           <div className="breed-photo overflow-hidden rounded-2xl shadow-card">
-            <img
+            <img loading="lazy"
               src="/breed-trio.jpg"
               alt="黄三角肉羊种羊肖像"
               className="aspect-[7/8] w-full object-cover"
@@ -111,7 +111,7 @@ export default function BreedSpotlight() {
           {/* 雪花肉小卡 */}
           <div className="breed-fade group mt-6 flex items-center gap-5 rounded-2xl border border-transparent bg-white p-4 shadow-card transition-all duration-300 hover:border-wheat-400/60 hover:shadow-card-hover">
             <div className="h-24 w-24 shrink-0 overflow-hidden rounded-xl">
-              <img
+              <img loading="lazy"
                 src="/marble-meat.jpg"
                 alt="雪花羊肉大理石纹特写"
                 className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
