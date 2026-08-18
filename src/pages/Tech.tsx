@@ -12,8 +12,8 @@ export default function Tech() {
       <TechHero />
       <GbsChip />
       <Patent />
-      <Partners />
       <LabGallery />
+      <Partners />
       <IntlCoop />
       <TechCta />
     </>

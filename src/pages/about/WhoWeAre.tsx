@@ -102,11 +102,11 @@ export default function WhoWeAre() {
             深度共建，历时约 18 年培育出「黄三角肉羊」——我国首个自主培育的专门化雪花肉羊新品系。
           </p>
           <p className="who-text mt-4 text-base leading-[1.8] text-ink-600">
-            技术合作亦面向全球：与
+            自主育种，亦与世界一流同频：与
             <strong className="font-bold text-pine-700">新西兰林肯大学（Lincoln University）基因团队</strong>
-            开展基因育种联合合作，并与
+            联合攻关、技术同频迭代，并与
             <strong className="font-bold text-pine-700">澳大利亚</strong>
-            等国家保持技术交流与稳定合作，确保技术始终处于国际第一梯队。
+            等国家保持技术交流与稳定合作，确保始终站在全球肉羊育种技术第一梯队。
           </p>
           <p className="who-text mt-4 text-base leading-[1.8] text-ink-600">
             我们以解决肉羊产业

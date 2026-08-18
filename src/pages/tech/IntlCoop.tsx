@@ -108,8 +108,8 @@ export default function IntlCoop() {
           全球视野 · 国际合作
         </h2>
         <p className="intl-head mt-5 max-w-2xl text-base leading-[1.8] text-ivory-50/70">
-          国内顶尖 × 国际一流 —— 在与中国科学院等国内院所深度共建的同时，
-          公司育种技术链接全球一线科研力量，始终保持国际第一梯队。
+          从黄河口到南半球 —— 自主育种技术，与世界一流同频。
+          在与中国科学院等国内院所深度共建之上，公司育种技术主动链接全球一线科研力量，始终站在国际第一梯队。
         </p>
 
         <div className="intl-grid mt-12 grid grid-cols-1 gap-6 lg:grid-cols-5">
@@ -128,13 +128,13 @@ export default function IntlCoop() {
                 Lincoln University · New Zealand
               </p>
               <p className="mt-5 max-w-xl text-sm leading-[1.9] text-ivory-50/80">
-                公司与林肯大学（Lincoln University）基因团队围绕
-                <strong className="font-bold text-wheat-300">基因育种技术</strong>
-                开展联合合作，育种技术始终保持
+                与林肯大学（Lincoln University）基因团队围绕
+                <strong className="font-bold text-wheat-300">基因育种技术联合攻关</strong>
+                ，技术同频迭代、持续进化，让黄河口的育种能力始终保持
                 <strong className="font-bold text-wheat-300">国际一流水平</strong>。
               </p>
               <div className="mt-6 flex flex-wrap gap-2">
-                {['基因育种技术联合', '国际一流水平'].map((t) => (
+                {['基因团队联合攻关', '技术同频迭代', '国际一流水平'].map((t) => (
                   <span
                     key={t}
                     className="rounded-full border border-white/15 bg-white/5 px-3.5 py-1.5 text-xs text-ivory-50/75"
@@ -155,9 +155,9 @@ export default function IntlCoop() {
               多国技术交流与稳定合作
             </h3>
             <p className="mt-4 text-sm leading-[1.9] text-ivory-50/80">
-              同时与<strong className="font-bold text-wheat-300">澳大利亚</strong>
-              等国家开展技术交流与稳定合作，确保技术始终处于
-              <strong className="font-bold text-wheat-300">第一梯队</strong>。
+              与<strong className="font-bold text-wheat-300">澳大利亚</strong>
+              等国家保持技术交流与稳定合作机制，在开放协作中校准方向，确保公司始终站在
+              <strong className="font-bold text-wheat-300">全球肉羊育种技术第一梯队</strong>。
             </p>
             <div className="intl-tags mt-6 flex flex-wrap gap-2">
               {SUB_TAGS.map((t) => (
@@ -171,6 +171,10 @@ export default function IntlCoop() {
             </div>
           </div>
         </div>
+
+        <p className="intl-head mt-12 text-center font-serif text-lg font-semibold text-wheat-300/90 md:text-xl">
+          技术无国界，标准有高度 —— 黄河口的种子，世界级的品质
+        </p>
       </div>
     </section>
   )

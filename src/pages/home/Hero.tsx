@@ -157,7 +157,7 @@ export default function Hero() {
             </span>
           </h1>
           <p className="hero-fade mt-7 max-w-2xl text-base leading-[1.8] text-ivory-50/85 md:text-lg">
-            山东腾洋育纯农牧科技有限公司 —— 联合中国科学院科研团队，历时十八年培育我国首个自主雪花肉羊新品系「黄三角肉羊」，打破国外高端种质资源长期垄断。
+            山东腾洋育纯农牧科技有限公司 —— 联合中国科学院科研团队，历时十八年培育我国首个自主雪花肉羊新品系「黄三角肉羊」，打破国外高端种质资源长期垄断；并与新西兰林肯大学基因团队联合攻关，育种技术始终保持国际一流水平。
           </p>
           <div className="hero-fade mt-9 flex flex-wrap items-center gap-4">
             <Link
