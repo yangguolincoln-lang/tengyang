@@ -75,7 +75,7 @@ export default function AddressBanner() {
           <MapPin className="relative h-8 w-8 text-wheat-400" strokeWidth={1.6} />
         </span>
         <h3 className="addr-text mt-7 max-w-2xl font-serif text-2xl font-bold leading-snug text-ivory-50 md:text-3xl">
-          山东省东营市利津县盐窝镇 · 黄河口滩羊产业园
+          山东省东营市 · 黄三角农高区农业高新技术产业示范区
         </h3>
         <p className="addr-text mt-3 text-sm tracking-wider text-ivory-50/70">
           黄河入海口 · 盐碱地上的现代牧歌

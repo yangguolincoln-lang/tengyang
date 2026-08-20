@@ -10,7 +10,7 @@ const INFO_CARDS = [
   {
     icon: MapPin,
     title: '公司地址',
-    desc: '山东省东营市利津县盐窝镇 · 黄河口滩羊产业园',
+    desc: '山东省东营市 · 黄三角农高区农业高新技术产业示范区',
   },
   {
     icon: MessageSquare,

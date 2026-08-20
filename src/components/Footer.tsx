@@ -71,7 +71,7 @@ export default function Footer() {
             </p>
             <p className="mt-4 flex items-start gap-2 text-sm leading-relaxed text-ivory-50/60">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-wheat-400" />
-              山东省东营市利津县盐窝镇 · 黄河口滩羊产业园
+              山东省东营市 · 黄三角农高区农业高新技术产业示范区
             </p>
           </div>
 

@@ -49,7 +49,7 @@ export default function ParkCta() {
         </h3>
         <p className="park-cta-item mt-5 flex items-center justify-center gap-2 text-sm text-ivory-50/65">
           <MapPin className="h-4 w-4 shrink-0 text-wheat-400" />
-          山东省东营市利津县盐窝镇 · 黄河口滩羊产业园
+          山东省东营市 · 黄三角农高区农业高新技术产业示范区
         </p>
         <div className="park-cta-btn mt-9 inline-block">
           <Link

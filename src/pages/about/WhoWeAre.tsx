@@ -92,7 +92,7 @@ export default function WhoWeAre() {
           </h2>
           <p className="who-text mt-6 text-base leading-[1.8] text-ink-600">
             公司坐落于
-            <strong className="font-bold text-pine-700">山东省东营市利津县盐窝镇 · 黄河口滩羊产业园</strong>
+            <strong className="font-bold text-pine-700">山东省东营市 · 黄三角农高区农业高新技术产业示范区</strong>
             ，专注高品质雪花肉羊的育种、繁育与产业化推广。
           </p>
           <p className="who-text mt-4 text-base leading-[1.8] text-ink-600">

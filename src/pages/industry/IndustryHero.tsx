@@ -91,7 +91,7 @@ export default function IndustryHero() {
 
         <div className="park-hero-fade flex items-center gap-4">
           <span className="h-px w-8 bg-wheat-400/70" aria-hidden />
-          <span className="eyebrow">Industry Park · 东营利津盐窝镇</span>
+          <span className="eyebrow">Industry Park · 东营黄三角农高区</span>
         </div>
 
         <h1 className="mt-6 max-w-3xl font-serif text-4xl font-bold leading-[1.25] text-ivory-50 sm:text-5xl lg:text-[56px]">
