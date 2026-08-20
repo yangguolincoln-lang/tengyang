@@ -58,7 +58,7 @@ export default function ContactBanner() {
         <img loading="lazy" src="/wetland-dusk.jpg" alt="" className="h-full w-full object-cover" />
         <div className="absolute inset-0 bg-pine-950/75" />
       </div>
-      {/* 流体色团 + 水珠浮游 */}
+      {/* 流体色团 + 雪花飘落 */}
       <LiquidBlob tone="light" className="left-[6%] top-[-20%] h-[360px] w-[360px]" />
       <LiquidBlob tone="gold" className="bottom-[-25%] right-[4%] h-[320px] w-[320px]" style={{ animationDelay: '-12s' }} />
       <DropletField count={8} tone="light" />

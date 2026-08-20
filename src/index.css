@@ -183,29 +183,37 @@
       0 8px 30px rgba(11, 31, 22, 0.08);
   }
 
-  /* 水珠浮游：上浮 + 横向漂移 + 透明度呼吸 */
-  .droplet {
-    animation-name: droplet-rise;
+  /* 雪花飘落：自上方缓缓下落 + 左右正弦摇摆 + 缓慢自转(±30°内) + 透明度呼吸 */
+  .snowflake {
+    animation-name: snowfall;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     will-change: transform, opacity;
   }
-  @keyframes droplet-rise {
+  @keyframes snowfall {
     0% {
-      transform: translateY(0) translateX(0);
+      transform: translate3d(0, 0, 0) rotate(0deg);
       opacity: 0;
     }
-    12% {
+    10% {
       opacity: 0.9;
     }
-    55% {
+    25% {
+      transform: translate3d(var(--flake-sway, 2vw), 26vh, 0)
+        rotate(var(--flake-spin, 20deg));
+    }
+    50% {
+      transform: translate3d(calc(var(--flake-sway, 2vw) * -1), 52vh, 0)
+        rotate(calc(var(--flake-spin, 20deg) * -1));
       opacity: 0.55;
     }
-    85% {
+    75% {
+      transform: translate3d(var(--flake-sway, 2vw), 78vh, 0)
+        rotate(var(--flake-spin, 20deg));
       opacity: 0.7;
     }
     100% {
-      transform: translateY(-52vh) translateX(var(--drop-sway, 2vw));
+      transform: translate3d(0, 104vh, 0) rotate(0deg);
       opacity: 0;
     }
   }
@@ -278,7 +286,7 @@
 
 /* 减弱动效：停用装饰性动画 */
 @media (prefers-reduced-motion: reduce) {
-  .droplet,
+  .snowflake,
   .liquid-blob,
   .ocean-wave {
     animation: none !important;

@@ -127,7 +127,7 @@ export default function Hero() {
       {/* 流体色团：松绿→麦金，极低透明液态氛围 */}
       <LiquidBlob tone="gold" className="left-[-8%] top-[12%] h-[420px] w-[420px]" />
       <LiquidBlob tone="light" className="bottom-[-10%] right-[-6%] h-[380px] w-[380px]" style={{ animationDelay: '-9s' }} />
-      {/* 水珠浮游层 */}
+      {/* 雪花飘落层 */}
       <DropletField count={10} tone="gold" />
       {/* 底部流动海浪线：黄河入海口 · 海洋曲线意象 */}
       <FlowingWaves />

@@ -95,7 +95,7 @@ export default function IntlCoop() {
 
   return (
     <section ref={rootRef} className="relative overflow-hidden bg-pine-950 py-14 md:py-24">
-      {/* 装饰：金色液团 + 水滴浮游 */}
+      {/* 装饰：金色液团 + 雪花飘落 */}
       <LiquidBlob tone="gold" className="-right-24 -top-24 h-96 w-96 opacity-40" />
       <LiquidBlob tone="light" className="-bottom-32 -left-24 h-80 w-80 opacity-30" />
       <DropletField count={8} tone="gold" />
