@@ -10,6 +10,7 @@ gsap.registerPlugin(ScrollTrigger)
 const KEYWORDS = ['雪花肉羊育种', '种羊繁育', '胚胎工程', '基因检测', '产业化推广']
 const PARTNERS = [
   '中国科学院西北生态环境资源研究院',
+  '山东土地集团',
   '黄河口滩羊产业技术研究院',
   '新西兰林肯大学基因团队（国际合作）',
 ]
