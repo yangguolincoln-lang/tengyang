@@ -64,8 +64,8 @@ export default function IndustryHero() {
       {/* 背景图 + 下部深绿渐变遮罩 80% */}
       <div className="park-hero-bg-wrap absolute inset-0 will-change-transform">
         <img
-          src="/aerial-park.jpg"
-          alt="黄河口滩羊产业园高空航拍：矩阵排列的标准化羊舍"
+          src="/yellow-river-park-hero.jpg"
+          alt="黄河口滩羊产业园真实航拍：矩阵排列的标准化羊舍与黄河三角洲农田"
           className="park-hero-bg h-full w-full object-cover will-change-transform"
         />
         <div

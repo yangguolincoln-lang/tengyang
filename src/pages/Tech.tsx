@@ -1,5 +1,6 @@
 import TechHero from './tech/TechHero'
 import GbsChip from './tech/GbsChip'
+import ResearchUpdates from './tech/ResearchUpdates'
 import Patent from './tech/Patent'
 import Partners from './tech/Partners'
 import LabGallery from './tech/LabGallery'
@@ -11,6 +12,7 @@ export default function Tech() {
     <>
       <TechHero />
       <GbsChip />
+      <ResearchUpdates />
       <Patent />
       <LabGallery />
       <Partners />
