@@ -38,8 +38,10 @@ const FACILITIES: Facility[] = [
     icon: Network,
     title: '全国首家肉羊产业 5G 综合管理服务中心',
     desc: '数字化养殖管理中枢，羊只数据一屏统览。',
-    image: '/barn-modern.jpg',
-    imageAlt: '现代化高标准羊舍内景',
+    image: '/5g-service-center.jpg',
+    imageAlt: '黄河口滩羊产业园5G智慧综合管理服务中心内部实拍',
+    imageSource: '人民网',
+    imageSourceUrl: 'http://sd.people.com.cn/n2/2020/1114/c391435-34415515.html',
     badge: '5G Service Center',
   },
   {
