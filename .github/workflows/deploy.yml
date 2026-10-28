@@ -1,0 +1,80 @@
+name: Deploy to Cloudflare Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: cloudflare-pages-deploy
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    name: Build and deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Resolve Pages project
+        id: pages
+        run: |
+          project_name="${{ vars.CLOUDFLARE_PAGES_PROJECT || 'tengyangyuchun' }}"
+          echo "project_name=${project_name}" >> "$GITHUB_OUTPUT"
+
+      - name: Prevent accidental data rollback
+        env:
+          PAGES_URL: https://${{ steps.pages.outputs.project_name }}.pages.dev
+        run: |
+          set -euo pipefail
+          local_date="$(jq -r '.updatedAt' public/data/prices.json)"
+          remote_date="$(curl --fail --silent --show-error "${PAGES_URL}/data/prices.json" | jq -r '.updatedAt')"
+          echo "Repository data date: ${local_date}"
+          echo "Production data date:   ${remote_date}"
+          if [[ "${local_date}" < "${remote_date}" ]]; then
+            echo "::error::Refusing to deploy older repository data over a newer production version."
+            exit 1
+          fi
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to Cloudflare Pages
+        id: deploy
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy dist --project-name=${{ steps.pages.outputs.project_name }} --branch=main
+
+      - name: Verify deployed data
+        env:
+          PAGES_URL: https://${{ steps.pages.outputs.project_name }}.pages.dev
+        run: |
+          set -euo pipefail
+          expected_date="$(jq -r '.updatedAt' public/data/prices.json)"
+          actual_date="$(curl --fail --silent --show-error "${PAGES_URL}/data/prices.json" | jq -r '.updatedAt')"
+          expected_hash="$(sha256sum dist/data/prices.json | awk '{print $1}')"
+          actual_hash="$(curl --fail --silent --show-error "${PAGES_URL}/data/prices.json" | sha256sum | awk '{print $1}')"
+          echo "Repository data date: ${expected_date}"
+          echo "Deployed data date:   ${actual_date}"
+          echo "Deployed data hash:   ${actual_hash}"
+          if [ "${actual_date}" != "${expected_date}" ] || [ "${actual_hash}" != "${expected_hash}" ]; then
+            echo "::error::Deployed data does not exactly match the repository build."
+            exit 1
+          fi
