@@ -12,6 +12,8 @@ type Facility = {
   desc: string
   image?: string
   imageAlt?: string
+  imageSource?: string
+  imageSourceUrl?: string
   badge: string
 }
 
@@ -44,18 +46,30 @@ const FACILITIES: Facility[] = [
     icon: Sun,
     title: '牧光互补 3.0 高床养殖',
     desc: '棚上发电、棚下养羊，年发绿电 3000 万度。',
+    image: '/solar-highbed-3.jpg',
+    imageAlt: '黄河口滩羊产业园牧光互补高床养殖棚，棚顶铺设光伏板',
+    imageSource: '人民日报客户端',
+    imageSourceUrl: 'http://news.haiwainet.cn/n/2023/0730/c3541083-32636860.html',
     badge: 'Solar Grazing',
   },
   {
     icon: Building2,
     title: '黄河口雪花羊繁育基地',
     desc: '项目总投资 9.88 亿元，改造老旧养殖小区 1300 多亩，建设封闭化养殖区与育种扩繁配套养殖区，将实现 5 万只/年繁育规模。',
+    image: '/snow-sheep-breeding-base.jpg',
+    imageAlt: '黄河口雪花羊繁育基地高床养殖羊群实拍',
+    imageSource: '大众网·利津宣传',
+    imageSourceUrl: 'https://dongying.dzwww.com/xsq/ljx/ljxyaonews/202609/t20260901_18074740.htm',
     badge: 'Breeding Base',
   },
   {
     icon: Globe,
     title: '全国肉羊云商电子交易中心',
     desc: '瞄准千亿级规模，整合全国 2000 余家养殖基地与加工企业，重塑肉羊流通格局。',
+    image: '/cloud-trading-center.jpg',
+    imageAlt: '黄河口滩羊产业园5G大数据中心驾驶舱，呈现肉羊数字化管理与追溯信息',
+    imageSource: '人民日报客户端',
+    imageSourceUrl: 'http://news.haiwainet.cn/n/2023/0730/c3541083-32636860.html',
     badge: 'Cloud Trading',
   },
 ]
@@ -119,7 +133,7 @@ export default function Infrastructure() {
                 key={f.title}
                 className="infra-card group overflow-hidden rounded-2xl bg-white shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-card-hover"
               >
-                {/* 封面：图片或（牧光互补）主题面板 */}
+                {/* 封面：实拍照片；无图片时保留主题面板回退 */}
                 {f.image ? (
                   <div className="relative h-56 overflow-hidden md:h-64">
                     <img
@@ -131,6 +145,16 @@ export default function Infrastructure() {
                     <span className="absolute left-4 top-4 rounded-md bg-pine-950/80 px-3 py-1 font-inter text-[11px] font-medium uppercase tracking-[0.2em] text-wheat-300 backdrop-blur-sm">
                       {f.badge}
                     </span>
+                    {f.imageSource && f.imageSourceUrl && (
+                      <a
+                        href={f.imageSourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="absolute bottom-3 right-3 rounded-md bg-pine-950/75 px-2.5 py-1 text-[11px] text-ivory-50/85 backdrop-blur-sm transition-colors hover:text-wheat-300"
+                      >
+                        实拍素材：{f.imageSource}
+                      </a>
+                    )}
                   </div>
                 ) : (
                   <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-pine-900 to-pine-950 md:h-64">
