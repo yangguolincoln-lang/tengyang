@@ -471,18 +471,16 @@ export default function EnglishSite() {
         <section id="breeding" className="scroll-mt-20 bg-ivory-100 py-20 md:py-28">
           <div className="mx-auto max-w-[1280px] px-5 md:px-12">
             <div className="grid items-center gap-14 lg:grid-cols-[52fr_48fr] lg:gap-20">
-              <motion.div
-                initial={{ opacity: 0, clipPath: 'inset(0 0 100% 0)' }}
-                whileInView={{ opacity: 1, clipPath: 'inset(0 0 0% 0)' }}
-                viewport={{ once: true, amount: 0.2 }}
-                transition={{ duration: 0.9 }}
-                className="relative"
-              >
-                <img src="/breed-trio.jpg" alt="Huangsanjiao snowflake breeding sheep" className="h-[500px] w-full rounded-3xl object-cover shadow-card md:h-[650px]" />
+              <div className="relative">
+                <img
+                  src="/huangsanjiao-sheep.jpg"
+                  alt="Three Huangsanjiao breeding sheep on pasture"
+                  className="aspect-[4/3] w-full rounded-3xl object-cover shadow-card"
+                />
                 <span className="absolute left-5 top-5 rounded-full bg-wheat-400 px-4 py-2 text-xs font-bold uppercase tracking-wider text-pine-950">
                   Huangsanjiao Sheep
                 </span>
-              </motion.div>
+              </div>
 
               <div>
                 <SectionHeading
