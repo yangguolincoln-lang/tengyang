@@ -29,9 +29,10 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  // 路由切换时关闭抽屉
+  // 路由切换时关闭抽屉，避免在 effect 中同步触发级联渲染
   useEffect(() => {
-    setOpen(false)
+    const frame = requestAnimationFrame(() => setOpen(false))
+    return () => cancelAnimationFrame(frame)
   }, [location.pathname])
 
   useEffect(() => {
