@@ -24,6 +24,7 @@ import {
   X,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import EnglishInquiryForm from '@/components/EnglishInquiryForm'
 
 const NAV_ITEMS = [
   { label: 'About', href: '#about' },
@@ -700,15 +701,15 @@ export default function EnglishSite() {
         <section id="contact" className="scroll-mt-20 bg-ivory-50 py-20 md:py-28">
           <div className="mx-auto max-w-[1280px] px-5 md:px-12">
             <div className="overflow-hidden rounded-3xl bg-pine-950 shadow-card-hover">
-              <div className="grid lg:grid-cols-[58fr_42fr]">
-                <div className="p-8 md:p-12 lg:p-16">
+              <div className="grid lg:grid-cols-[45fr_55fr]">
+                <div className="p-8 md:p-12 lg:p-14">
                   <SectionHeading
                     dark
                     eyebrow="Work with us"
                     title="Let’s build a stronger sheep industry together."
                     description="We welcome conversations with farming enterprises, cooperatives, research institutions, retailers and channel partners."
                   />
-                  <div className="mt-8 grid gap-3 sm:grid-cols-2">
+                  <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
                     {['Breeding stock & multiplication', 'Joint scientific research', 'Premium product supply', 'Retail & distribution'].map((item) => (
                       <div key={item} className="flex items-center gap-2.5 text-sm text-ivory-50/75">
                         <Check className="h-4 w-4 shrink-0 text-wheat-400" />
@@ -716,19 +717,14 @@ export default function EnglishSite() {
                       </div>
                     ))}
                   </div>
-                  <Link to="/contact" className="group mt-9 inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-wheat-400 to-wheat-300 px-7 py-3.5 text-sm font-bold text-pine-950 transition-transform hover:scale-[1.03]">
-                    Send an online inquiry
-                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </Link>
-                  <p className="mt-4 text-xs leading-5 text-ivory-50/45">Our team responds on working days. The inquiry form is hosted on our Chinese contact page.</p>
-                </div>
-                <div className="relative min-h-[320px]">
-                  <img src="/worker-care.jpg" alt="Technical specialist caring for sheep" className="absolute inset-0 h-full w-full object-cover" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-pine-950/85 via-transparent to-transparent" />
-                  <div className="absolute inset-x-0 bottom-0 p-7">
+                  <div className="mt-10 border-t border-white/10 pt-7">
                     <MapPin className="h-5 w-5 text-wheat-400" />
-                    <p className="mt-3 text-sm leading-7 text-ivory-50/85">Yellow River Delta Agricultural High-Tech Zone<br />Dongying, Shandong, China</p>
+                    <p className="mt-3 text-sm leading-7 text-ivory-50/65">Yellow River Delta Agricultural High-Tech Zone<br />Dongying, Shandong, China</p>
+                    <p className="mt-4 text-xs leading-5 text-ivory-50/40">Our team responds to English inquiries on working days.</p>
                   </div>
+                </div>
+                <div className="bg-white p-6 md:p-10 lg:p-12">
+                  <EnglishInquiryForm />
                 </div>
               </div>
             </div>
