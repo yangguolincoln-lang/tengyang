@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import type { ChangeEvent, FormEvent } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { Check, CheckCircle2, ChevronDown, Copy, Loader2, Send } from 'lucide-react'
+import { AlertCircle, Check, CheckCircle2, ChevronDown, Copy, Loader2, Send } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 const DIRECTIONS = [
@@ -14,6 +14,7 @@ const DIRECTIONS = [
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 const PHONE_RE = /^\+?[0-9\s().-]{7,}$/
+const INQUIRY_ENDPOINT = 'https://formsubmit.co/ajax/yangguolincoln@gmail.com'
 
 type InquiryData = {
   name: string
@@ -23,6 +24,8 @@ type InquiryData = {
 }
 
 type Errors = Partial<Record<keyof InquiryData, string>>
+type SubmitStatus = 'idle' | 'loading' | 'success' | 'error'
+type InquiryResponse = { success?: boolean | string; message?: string }
 
 const INITIAL: InquiryData = { name: '', contact: '', direction: '', message: '' }
 
@@ -41,13 +44,19 @@ function validate(data: InquiryData): Errors {
 export default function EnglishInquiryForm() {
   const [data, setData] = useState<InquiryData>(INITIAL)
   const [errors, setErrors] = useState<Errors>({})
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
+  const [status, setStatus] = useState<SubmitStatus>('idle')
+  const [submitError, setSubmitError] = useState('')
   const [copied, setCopied] = useState(false)
+  const [honey, setHoney] = useState('')
 
   const update = (key: keyof InquiryData) =>
     (event: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
       setData((current) => ({ ...current, [key]: event.target.value }))
       if (errors[key]) setErrors((current) => ({ ...current, [key]: undefined }))
+      if (status === 'error') {
+        setStatus('idle')
+        setSubmitError('')
+      }
     }
 
   const summary = () =>
@@ -76,13 +85,55 @@ export default function EnglishInquiryForm() {
     window.setTimeout(() => setCopied(false), 2000)
   }
 
-  const handleSubmit = (event: FormEvent) => {
+  const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
+    if (status === 'loading') return
     const nextErrors = validate(data)
     setErrors(nextErrors)
     if (Object.keys(nextErrors).length > 0) return
+
     setStatus('loading')
-    window.setTimeout(() => setStatus('success'), 800)
+    setSubmitError('')
+    const controller = new AbortController()
+    const timeout = window.setTimeout(() => controller.abort(), 20000)
+
+    try {
+      const contact = data.contact.trim()
+      const payload: Record<string, string> = {
+        name: data.name.trim(),
+        contact,
+        direction: data.direction || 'Not specified',
+        message: data.message.trim(),
+        _subject: `New website inquiry — ${data.name.trim()}`,
+        _template: 'table',
+        _captcha: 'false',
+        _honey: honey,
+      }
+      if (EMAIL_RE.test(contact)) {
+        payload.email = contact
+        payload._replyto = contact
+      }
+
+      const response = await fetch(INQUIRY_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify(payload),
+        signal: controller.signal,
+      })
+      const result = await response.json().catch(() => ({})) as InquiryResponse
+      const succeeded = result.success === true || result.success === 'true'
+      if (!response.ok || !succeeded) throw new Error(result.message || 'Submission failed')
+      setStatus('success')
+    } catch (error) {
+      setStatus('error')
+      setSubmitError(
+        error instanceof DOMException && error.name === 'AbortError'
+          ? 'The request timed out. Please check your connection and try again.'
+          : 'We couldn’t send your inquiry right now. Please try again.',
+      )
+    } finally {
+      window.clearTimeout(timeout)
+    }
   }
 
   const reset = () => {
@@ -145,6 +196,28 @@ export default function EnglishInquiryForm() {
             onSubmit={handleSubmit}
             noValidate
           >
+            <input
+              type="text"
+              name="_honey"
+              value={honey}
+              onChange={(event) => setHoney(event.target.value)}
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
+              className="absolute -left-[9999px] h-px w-px opacity-0"
+            />
+            {status === 'error' && (
+              <div role="alert" className="mb-6 flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-sm leading-6 text-red-700">
+                <AlertCircle className="mt-1 h-4 w-4 shrink-0" />
+                <p>
+                  {submitError}{' '}
+                  You can also email us at{' '}
+                  <a href="mailto:yangguolincoln@gmail.com" className="font-semibold underline underline-offset-2">
+                    yangguolincoln@gmail.com
+                  </a>.
+                </p>
+              </div>
+            )}
             <div>
               <span className="text-xs font-medium uppercase tracking-[0.25em] text-wheat-600">Online inquiry</span>
               <h3 className="mt-3 font-fraunces text-3xl font-semibold text-ink-900">Tell us about your project.</h3>
