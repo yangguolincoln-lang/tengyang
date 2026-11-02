@@ -10,6 +10,7 @@ import News from './pages/News'
 import Contact from './pages/Contact'
 import Products from './pages/products/Products'
 import Tools from './pages/tools/Tools'
+import EnglishSite from './pages/EnglishSite'
 
 /** 页面切换：淡入 + 上移 24px，300ms */
 function AnimatedRoutes() {
@@ -24,6 +25,7 @@ function AnimatedRoutes() {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       >
         <Routes location={location}>
+          <Route path="en" element={<EnglishSite />} />
           <Route element={<Layout />}>
             <Route index element={<Home />} />
             <Route path="about" element={<About />} />

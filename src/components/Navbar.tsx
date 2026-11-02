@@ -115,6 +115,18 @@ export default function Navbar() {
           {/* 右侧 CTA + 汉堡 */}
           <div className="flex items-center gap-3">
             <Link
+              to="/en"
+              aria-label="Switch to English website"
+              className={cn(
+                'inline-flex h-10 items-center rounded-full border px-3.5 font-inter text-xs font-bold tracking-wider transition-colors',
+                scrolled
+                  ? 'border-pine-700/20 text-pine-700 hover:border-wheat-400 hover:bg-wheat-400/10'
+                  : 'border-ivory-50/30 text-ivory-50 hover:border-wheat-400 hover:text-wheat-300',
+              )}
+            >
+              EN
+            </Link>
+            <Link
               to="/contact"
               className={cn(
                 'hidden items-center gap-2 rounded-full px-5 py-2.5 text-sm font-bold transition-all duration-300 sm:inline-flex',
